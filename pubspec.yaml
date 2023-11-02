@@ -93,6 +93,18 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/reward/
+    - assets/images/musics/
+    - assets/images/sales/
+    - assets/images/skins/
+    - assets/images/transports/
+    - assets/images/transports/economy/
+    - assets/images/transports/average/
+    - assets/images/transports/premium/
+    - assets/images/transports/yachts/
+    - assets/images/transports/unique/
+    - assets/images/games-packages/    
     - assets/icons/
+    - assets/icons/store-card/
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

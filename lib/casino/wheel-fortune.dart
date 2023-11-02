@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vibes_studio/elements/button_animator.dart';
+import 'package:vibes_studio/elements/buttons/button-animator.dart';
 import 'package:vibes_studio/elements/sdp.dart';
 
 class WheelFortuneScreen extends StatefulWidget {
@@ -12,8 +12,7 @@ class WheelFortuneScreen extends StatefulWidget {
   State<WheelFortuneScreen> createState() => _WheelFortuneScreenState();
 }
 
-class _WheelFortuneScreenState extends State<WheelFortuneScreen>
-    with TickerProviderStateMixin {
+class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProviderStateMixin {
   double _rotationAngle = 0.0;
   bool wheelSpun = false;
   late AnimationController _controller;
@@ -23,8 +22,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
     final segments = 20;
     final degreesPerSegment = 360 / segments;
     final normalizedAngle = _rotationAngle % 360;
-    final selectedSegment =
-        (segments - (normalizedAngle / degreesPerSegment).floor()) % segments;
+    final selectedSegment = (segments - (normalizedAngle / degreesPerSegment).floor()) % segments;
     return selectedSegment;
   }
 
@@ -77,8 +75,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
           }
         }
 
-        openPrize(
-            goodPrize: goodPrize, logo: logo!, image: image!, action: action!);
+        openPrize(goodPrize: goodPrize, logo: logo!, image: image!, action: action!);
       }
       wheelSpun = true;
     });
@@ -119,16 +116,12 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
               body: Center(
                 child: Padding(
                   padding: EdgeInsets.only(
-                      top: sdp_fromPX(context, 10),
-                      left: sdp_fromPX(context, 430),
-                      right: sdp_fromPX(context, 430),
-                      bottom: sdp_fromPX(context, 70)),
+                      top: sdp_fromPX(context, 10), left: sdp_fromPX(context, 430), right: sdp_fromPX(context, 430), bottom: sdp_fromPX(context, 70)),
                   child: Container(
                     height: sdp_fromPX(context, 916),
                     width: sdp_fromPX(context, 1060),
                     decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(sdp_fromPX(context, 40)),
+                      borderRadius: BorderRadius.circular(sdp_fromPX(context, 40)),
                       gradient: goodPrize
                           ? LinearGradient(
                               begin: Alignment.centerLeft,
@@ -160,26 +153,19 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                             ),
                             Text(
                               ' Вы выиграли $action',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 1),
-                                  fontSize: sdp_fromPX(context, 48),
-                                  fontWeight: FontWeight.w700),
+                              style:
+                                  TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 48), fontWeight: FontWeight.w700),
                             )
                           ],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
-                            top: sdp_fromPX(context, 40),
-                            left: sdp_fromPX(context, 80),
-                            right: sdp_fromPX(context, 80)),
+                        padding: EdgeInsets.only(top: sdp_fromPX(context, 40), left: sdp_fromPX(context, 80), right: sdp_fromPX(context, 80)),
                         child: Container(
                           height: sdp_fromPX(context, 575),
                           width: sdp_fromPX(context, 900),
                           decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: sdp_fromPX(context, 1),
-                                  color: Color.fromRGBO(255, 168, 0, 0.3)),
+                              border: Border.all(width: sdp_fromPX(context, 1), color: Color.fromRGBO(255, 168, 0, 0.3)),
                               gradient: goodPrize
                                   ? LinearGradient(
                                       begin: Alignment.centerLeft,
@@ -197,8 +183,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                                         Color.fromRGBO(27, 4, 37, 1),
                                       ],
                                     ),
-                              borderRadius: BorderRadius.circular(
-                                  sdp_fromPX(context, 30))),
+                              borderRadius: BorderRadius.circular(sdp_fromPX(context, 30))),
                           child: Padding(
                             padding: EdgeInsets.only(
                               top: sdp_fromPX(context, 30),
@@ -230,18 +215,13 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                               width: sdp_fromPX(context, 448),
                               decoration: BoxDecoration(
                                   color: Color.fromRGBO(255, 168, 0, 0.2),
-                                  borderRadius: BorderRadius.circular(
-                                      sdp_fromPX(context, 50)),
-                                  border: Border.all(
-                                      width: sdp_fromPX(context, 2),
-                                      color: Color.fromRGBO(255, 168, 0, 0.3))),
+                                  borderRadius: BorderRadius.circular(sdp_fromPX(context, 50)),
+                                  border: Border.all(width: sdp_fromPX(context, 2), color: Color.fromRGBO(255, 168, 0, 0.3))),
                               child: Center(
                                 child: Text(
                                   'Забрать приз',
                                   style: TextStyle(
-                                      color: Color.fromRGBO(255, 255, 255, 1),
-                                      fontSize: sdp_fromPX(context, 25),
-                                      fontWeight: FontWeight.w500),
+                                      color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w500),
                                 ),
                               ),
                             ),
@@ -288,13 +268,8 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          wheelSpun
-                              ? 'Попытки на сегодня закончились'
-                              : 'Будет доступно через 1 час 23 мин',
-                          style: TextStyle(
-                              color: Color.fromRGBO(236, 127, 243, 1),
-                              fontSize: sdp_fromPX(context, 25),
-                              fontWeight: FontWeight.w400),
+                          wheelSpun ? 'Попытки на сегодня закончились' : 'Будет доступно через 1 час 23 мин',
+                          style: TextStyle(color: Color.fromRGBO(236, 127, 243, 1), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
                         ),
                         Padding(
                           padding: EdgeInsets.only(
@@ -302,10 +277,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                           ),
                           child: Text(
                             'Колесо фортуны',
-                            style: TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: sdp_fromPX(context, 60),
-                                fontWeight: FontWeight.w700),
+                            style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 60), fontWeight: FontWeight.w700),
                           ),
                         ),
                         Padding(
@@ -314,10 +286,8 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                           ),
                           child: Text(
                             'Колесо фортуны можно крутить каждый день\nпосле 2 часов, проведенных в игре',
-                            style: TextStyle(
-                                color: Color.fromRGBO(255, 255, 255, 0.60),
-                                fontSize: sdp_fromPX(context, 25),
-                                fontWeight: FontWeight.w400),
+                            style:
+                                TextStyle(color: Color.fromRGBO(255, 255, 255, 0.60), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
                           ),
                         ),
                         Padding(
@@ -328,23 +298,15 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                             text: TextSpan(
                               text: 'При покупке ',
                               style: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 0.60),
-                                  fontSize: sdp_fromPX(context, 25),
-                                  fontWeight: FontWeight.w400),
+                                  color: Color.fromRGBO(255, 255, 255, 0.60), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
                               children: const <TextSpan>[
                                 TextSpan(
                                   text: 'Матрешка+',
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(255, 168, 0, 1),
-                                      fontWeight: FontWeight.w500),
+                                  style: TextStyle(color: Color.fromRGBO(255, 168, 0, 1), fontWeight: FontWeight.w500),
                                 ),
                                 TextSpan(
-                                  text:
-                                      ', колесо можно \nпрокрутить второй раз после 4 часов игры',
-                                  style: TextStyle(
-                                      color:
-                                          Color.fromRGBO(255, 255, 255, 0.60),
-                                      fontWeight: FontWeight.w400),
+                                  text: ', колесо можно \nпрокрутить второй раз после 4 часов игры',
+                                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.60), fontWeight: FontWeight.w400),
                                 ),
                               ],
                             ),
@@ -363,20 +325,13 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
                             height: sdp_fromPX(context, 87),
                             width: sdp_fromPX(context, 480),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    sdp_fromPX(context, 50)),
-                                color: wheelSpun
-                                    ? Color.fromRGBO(186, 54, 248, 1)
-                                    : Color.fromRGBO(255, 168, 0, 1)),
+                                borderRadius: BorderRadius.circular(sdp_fromPX(context, 50)),
+                                color: wheelSpun ? Color.fromRGBO(186, 54, 248, 1) : Color.fromRGBO(255, 168, 0, 1)),
                             child: Center(
                               child: Text(
-                                wheelSpun
-                                    ? 'Купить Матрешка+'
-                                    : 'Крутить колесо',
+                                wheelSpun ? 'Купить Матрешка+' : 'Крутить колесо',
                                 style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                    fontSize: sdp_fromPX(context, 26),
-                                    fontWeight: FontWeight.w700),
+                                    color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 26), fontWeight: FontWeight.w700),
                               ),
                             ),
                           ),
@@ -411,22 +366,20 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen>
               ),
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: sdp_fromPX(context, 68),
-                right: sdp_fromPX(context, 40),
-              ),
-              child: Container(
-                height: sdp_fromPX(context, 96),
-                width: sdp_fromPX(context, 96),
-                child: ButtonAnimator(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  childWidget: SvgPicture.asset(
-                    'assets/icons/closebg.svg',
-                  ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: sdp_fromPX(context, 68),
+              right: sdp_fromPX(context, 40),
+            ),
+            child: Container(
+              height: sdp_fromPX(context, 96),
+              width: sdp_fromPX(context, 96),
+              child: ButtonAnimator(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                childWidget: SvgPicture.asset(
+                  'assets/icons/closebg.svg',
                 ),
               ),
             ),
