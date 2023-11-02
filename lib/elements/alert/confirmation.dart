@@ -150,7 +150,7 @@ class _ConfirmationAlertState extends State<ConfirmationAlert> {
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         ButtonAnimator(
-                                          onTap: widget.onTapAccept!,
+                                          onTap: widget.onTapAccept ?? () {},
                                           childWidget: Container(
                                             height: sdp_fromPX(context, 80),
                                             width: sdp_fromPX(context, 284),

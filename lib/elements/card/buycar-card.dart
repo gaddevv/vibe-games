@@ -260,7 +260,7 @@ class _BuyCarCardState extends State<BuyCarCard> {
                       ),
                       Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
                       Text(
-                        '10000',
+                        widget.buttonText ?? 'Купить',
                         style: TextStyle(
                           color: Color.fromRGBO(255, 255, 255, 1),
                           fontSize: sdp_fromPX(context, 33),

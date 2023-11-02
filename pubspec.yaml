@@ -102,6 +102,13 @@ flutter:
     - assets/images/transports/premium/
     - assets/images/transports/yachts/
     - assets/images/transports/unique/
+    - assets/images/roulette/everyday-case/
+    - assets/images/roulette/gold-case/
+    - assets/images/roulette/silver-case/
+    - assets/images/roulette/bronz-case/
+    - assets/images/roulette/car-case/
+
+
     - assets/images/games-packages/    
     - assets/icons/
     - assets/icons/store-card/

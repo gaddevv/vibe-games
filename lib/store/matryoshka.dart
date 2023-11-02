@@ -1,53 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vibes_studio/elements/buttons/button-animator.dart';
-
 import 'package:vibes_studio/elements/card/store-card.dart';
 import 'package:vibes_studio/elements/lists/check-list.dart';
 import 'package:vibes_studio/elements/sdp.dart';
 
-class ServicesScreen extends StatefulWidget {
-  const ServicesScreen({super.key});
+class MatryoshkaScreen extends StatefulWidget {
+  const MatryoshkaScreen({super.key});
 
   @override
-  State<ServicesScreen> createState() => _ServicesScreenState();
+  State<MatryoshkaScreen> createState() => _MatryoshkaScreenState();
 }
 
-class _ServicesScreenState extends State<ServicesScreen> {
-  List<Map<String, dynamic>> servicesData = [
-    {'description': 'Приобрести опыт (exp)', 'price': '30 РУБ'},
-    {'description': 'Приобрести домашнего питомца', 'price': '300 РУБ'},
-    {'description': 'Скины на оружие', 'price': '500 РУБ'},
-    {'description': 'Стробоскопы на автомобиль', 'price': '400 РУБ'},
-    {'description': 'Стробоскопы полицейские', 'price': '2000 РУБ'},
-    {'description': 'Изменить имя', 'price': '99 РУБ'},
-    {'description': 'Снять предупреждения', 'price': '500 РУБ'},
-    {'description': 'Получить колёса', 'price': '10 РУБ'},
-    {'description': 'Подделка документов (Законопослушность +10)', 'price': '4 РУБ'},
-    {'description': 'Покупка 2-х значного номера телефона', 'price': '1600 РУБ'},
-    {'description': 'Покупка 3-х значного номера телефона', 'price': '800 РУБ'},
-    {'description': 'Покупка 4-х значного номера телефона', 'price': '300 РУБ'},
-    {'description': 'Прокачать силу или навыки владения оружием', 'price': '1 РУБ'},
-    {'description': 'Приобрести номерной знак', 'price': '300 РУБ'},
-    {'description': 'Увеличить количество слотов для транспорта', 'price': '150 РУБ'},
-    {'description': 'Покупка всех лицензий', 'price': '150 РУБ'},
-    {'description': 'Создание семьи', 'price': '500 РУБ'},
-    {'description': 'Приобрести военный билет', 'price': '500 РУБ'},
-    {'description': 'Владение двумя типами бизнесов', 'price': '7500 РУБ'},
-    {'description': 'Персональный номерной знак на автомобиль', 'price': '500 РУБ'},
+class _MatryoshkaScreenState extends State<MatryoshkaScreen> {
+  List<Map<String, dynamic>> matryoshkaData = [
+    {'description': 'Отсутствие ожидания потери сознания'},
+    {'description': 'Износ автомобиля в два раза меньше'},
+    {'description': 'На время действия подписки - скин “Дани милохина”'},
+    {'description': 'На время действия подписки - скин “Вали карнавал”'},
+    {'description': 'На время действия подписки - автомобиль lamborgini huracan'},
+    {'description': 'На время действия подписки - Весь комплект аудио-подписки'},
+    {'description': 'Эксклюзивная функция - “Анти-радар”'},
+    {'description': 'Эксклюзивная функция - “Анти-светофор”'},
+    {'description': 'Начисление зарплаты в гос. организациях'},
+    {'description': 'При покупке +1 СЛОТ ДЛЯ ПОКУПКИ АВТОМОБИЛЯ'},
+    {'description': 'ЧАСТОТА ОБРАЩЕНИЯ В РЕПОРТ УВЕЛИЧЕНА В 2 РАЗА'},
+    {'description': '+15 ПРОЦЕНТОВ К ЗАРАБОТКУ НА НАЧАЛЬНЫХ РАБОТАХ'},
+    {'description': '+10 ПРОЦЕНТОВ К ЗАРАБОТКУ НА ОСНОВНЫХ РАБОТАХ'},
+    {'description': '+10 ПРОЦЕНТОВ К ЗАРПЛАТЕ В ОРГАНИЗАЦИЯХ'},
+    {'description': 'УВЕЛИЧЕННАЯ СКОРОСТЬ ЛЕЧЕНИЯ В БОЛЬНИЦЕ'},
+    {'description': 'ДОСТУП К vip ЧАТУ'},
+    {'description': 'ОПЛАЧИВАТЬ ДОМ МОЖНО НА 3 НЕДЕЛИ'},
+    {'description': 'оПЛАЧИВАТЬ бИЗНЕС МОЖНО НА 2 НЕДЕЛИ'},
+    {'description': 'оПЛАЧИВАТЬ аВТОБАЗУ МОЖНО НА 2 НЕДЕЛИ'},
+    {'description': 'оПЛАЧИВАТЬ азс МОЖНО НА 2 НЕДЕЛИ'},
+    {'description': '+10 ПРОЦЕНТОВ К ЗАРАБОТКУ НА РАБОТЕ ДАЛЬНОБОЙЩИКА'},
   ];
 
-  int selectedRow = -1;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: sdp_fromPX(context, 1080),
-      width: sdp_fromPX(context, 1920),
-      child: Container(
         height: sdp_fromPX(context, 1080),
         width: sdp_fromPX(context, 1920),
-        child: Row(
-          children: [
+        child: Container(
+          height: sdp_fromPX(context, 1080),
+          width: sdp_fromPX(context, 1920),
+          child: Row(children: [
             Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
             Column(
               children: [
@@ -172,64 +170,60 @@ class _ServicesScreenState extends State<ServicesScreen> {
               ],
             ),
             Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: sdp_fromPX(context, 20), top: sdp_fromPX(context, 20)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Доступные услуги',
-                        style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500),
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Padding(
+                padding: EdgeInsets.only(left: sdp_fromPX(context, 20), top: sdp_fromPX(context, 20)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Доступные услуги',
+                      style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: sdp_fromPX(context, 300),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: sdp_fromPX(context, 300),
-                        ),
+                    ),
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'ДЕЙСТВУЕТ ДО: ',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: sdp_fromPX(context, 34),
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w300,
+                              height: 0,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'ДД.ММ.ГГГГ',
+                            style: TextStyle(
+                              color: Color(0xFF69D666),
+                              fontSize: sdp_fromPX(context, 34),
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'ДЕЙСТВУЕТ ДО: ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: sdp_fromPX(context, 34),
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w300,
-                                height: 0,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'ДД.ММ.ГГГГ',
-                              style: TextStyle(
-                                color: Color(0xFF69D666),
-                                fontSize: sdp_fromPX(context, 34),
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w600,
-                                height: 0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-                Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                CheckList(
-                  data: servicesData,
-                  secondText: true,
-                  height: sdp_fromPX(context, 637),
-                  width: sdp_fromPX(context, 1200),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+              ),
+              Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
+              CheckList(
+                data: matryoshkaData,
+                secondText: false,
+                height: sdp_fromPX(context, 637),
+                width: sdp_fromPX(context, 1200),
+                widthFirstCell: sdp_fromPX(context, 1080),
+              ),
+            ])
+          ]),
+        ));
   }
 }
