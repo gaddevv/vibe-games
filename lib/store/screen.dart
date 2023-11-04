@@ -81,7 +81,7 @@ class _ScreenState extends State<Screen> {
         'speed': 260.0,
         'boost': 7.6,
         'trunk': 100.0,
-      }
+      },
     ],
     2: [
       {
@@ -550,7 +550,7 @@ class _ScreenState extends State<Screen> {
             ),
             Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
             Container(
-              height: sdp_fromPX(context, type == 0 || type == 2 ? 570 : 740),
+              height: sdp_fromPX(context, type == 0 ? 570 : 740),
               child: Stack(
                 children: [
                   Container(
@@ -559,7 +559,7 @@ class _ScreenState extends State<Screen> {
                     color: Color.fromRGBO(0, 0, 0, 0.6),
                   ),
                   Container(
-                    height: sdp_fromPX(context, type == 0 || type == 2 ? 570 : 740),
+                    height: sdp_fromPX(context, type == 0 ? 570 : 740),
                     width: sdp_fromPX(context, 1920),
                     child: type == 1
                         ? ServicesScreen()
