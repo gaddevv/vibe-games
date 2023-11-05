@@ -107,18 +107,20 @@ class _BuyCarCardState extends State<BuyCarCard> {
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
             Text(widget.title ?? 'Автомобиль',
                 style: TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 1),
                   fontSize: sdp_fromPX(context, 43),
                   fontWeight: FontWeight.w500,
                 )),
-            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
+            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 60))),
             Container(height: sdp_fromPX(context, 314), width: sdp_fromPX(context, 530), child: Image.asset(widget.image))
           ],
         ),
         Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 200))),
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               height: sdp_fromPX(context, 305),
@@ -134,9 +136,10 @@ class _BuyCarCardState extends State<BuyCarCard> {
                 borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Скорость',
                           style: TextStyle(

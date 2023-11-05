@@ -540,8 +540,8 @@ class _ScreenState extends State<Screen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     if (trclassText != null)
-                      Container(
-                        color: Colors.amber,
+                      Padding(
+                        padding: EdgeInsets.only(right: sdp_fromPX(context, trclassText != null ? 250 : 0)),
                         child: BackArrowButton(
                           onTap: () {
                             setState(() {
@@ -566,9 +566,8 @@ class _ScreenState extends State<Screen> {
                     Container(
                       width: sdp_fromPX(context, 1000),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: trclassText != null ? MainAxisAlignment.start : MainAxisAlignment.center,
                         children: [
-                          // Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
                           Text(categoryText!,
                               style: TextStyle(
                                   fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500, foreground: Paint()..shader = whiteGradient)),
