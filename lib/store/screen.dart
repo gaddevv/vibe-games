@@ -396,7 +396,6 @@ class _ScreenState extends State<Screen> {
                   Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
                   Container(
                     height: sdp_fromPX(context, 73),
-                    width: sdp_fromPX(context, 284),
                     decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,

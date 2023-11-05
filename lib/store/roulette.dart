@@ -340,7 +340,7 @@ class _RouletteScreenState extends State<RouletteScreen> {
                   //   for (int i = 0; i < 5; i++) {
                   //     currentRoulette.addAll(value);
                   //   }
-                  //   updatedRoulette[key] = currentRoulette;
+                  //   definedRoulette[key] = currentRoulette;
                   // });
                   spun = true;
                 _startScrollAnimation();
