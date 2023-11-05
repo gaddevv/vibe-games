@@ -208,7 +208,9 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                               decoration: BoxDecoration(
                                   color: goodPrize ? Color.fromRGBO(255, 168, 0, 0.2) : Color(0x33AF03FB),
                                   borderRadius: BorderRadius.circular(sdp_fromPX(context, 50)),
-                                  border: Border.all(width: sdp_fromPX(context, 2), color: Color.fromRGBO(255, 168, 0, 0.3))),
+                                  border: Border.all(
+                                      width: sdp_fromPX(context, 2),
+                                      color: goodPrize ? Color.fromRGBO(255, 168, 0, 0.3) : Color.fromRGBO(175, 3, 251, 0.3))),
                               child: Center(
                                 child: Text(
                                   'Забрать приз',
