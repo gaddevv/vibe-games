@@ -90,7 +90,7 @@ class _FiveButtonBarState extends State<FiveButtonBar> {
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 64))),
+            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
             Container(
               height: sdp_fromPX(context, 38),
               child: ButtonAnimator(
@@ -107,7 +107,7 @@ class _FiveButtonBarState extends State<FiveButtonBar> {
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 64))),
+            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
             Container(
               height: sdp_fromPX(context, 38),
               child: ButtonAnimator(
@@ -124,7 +124,7 @@ class _FiveButtonBarState extends State<FiveButtonBar> {
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 64))),
+            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
             Container(
               height: sdp_fromPX(context, 38),
               child: ButtonAnimator(

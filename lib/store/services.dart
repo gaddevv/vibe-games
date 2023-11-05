@@ -40,196 +40,190 @@ class _ServicesScreenState extends State<ServicesScreen> {
   int selectedRow = -1;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: sdp_fromPX(context, 1080),
-      width: sdp_fromPX(context, 1920),
-      child: Container(
-        height: sdp_fromPX(context, 1080),
-        width: sdp_fromPX(context, 1920),
-        child: Row(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
+        Column(
           children: [
-            Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
-            Column(
+            Stack(
               children: [
-                Stack(
-                  children: [
-                    StoreCard(
-                      image: 'assets/images/sales/box.png',
-                      title: 'Акция дня',
-                      subtitle: 'OG Buda',
-                      subText: '1200',
-                      subtextTwo: '3000',
-                      buttonExist: false,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: sdp_fromPX(context, 17)),
-                      child: Container(
-                        height: sdp_fromPX(context, 70),
-                        width: sdp_fromPX(context, 322),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(sdp_fromPX(context, 15)),
-                                topRight: Radius.circular(
-                                  sdp_fromPX(context, 15),
-                                )),
-                            gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: <Color>[Color.fromRGBO(192, 61, 255, 1), Color.fromRGBO(178, 1, 241, 1)],
+                StoreCard(
+                  image: 'assets/images/sales/box.png',
+                  title: 'Акция дня',
+                  subtitle: 'OG Buda',
+                  subText: '1200',
+                  subtextTwo: '3000',
+                  buttonExist: false,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: sdp_fromPX(context, 17)),
+                  child: Container(
+                    height: sdp_fromPX(context, 70),
+                    width: sdp_fromPX(context, 322),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(sdp_fromPX(context, 15)),
+                            topRight: Radius.circular(
+                              sdp_fromPX(context, 15),
                             )),
-                        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                          SvgPicture.asset(
-                            'assets/icons/coin.svg',
-                            height: sdp_fromPX(context, 40),
-                            width: sdp_fromPX(context, 40),
-                          ),
-                          Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                          Text(
-                            '250 на 30 дней',
-                            style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontSize: sdp_fromPX(context, 28),
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ]),
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: <Color>[Color.fromRGBO(192, 61, 255, 1), Color.fromRGBO(178, 1, 241, 1)],
+                        )),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      SvgPicture.asset(
+                        'assets/icons/coin.svg',
+                        height: sdp_fromPX(context, 40),
+                        width: sdp_fromPX(context, 40),
                       ),
-                    )
-                  ],
-                ),
-                ButtonAnimator(
-                  onTap: () {},
-                  childWidget: Container(
-                    height: sdp_fromPX(context, 70),
-                    width: sdp_fromPX(context, 322),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: <Color>[
-                            Color.fromRGBO(54, 119, 80, 1),
-                            Color.fromRGBO(56, 205, 116, 1),
-                          ],
-                        )),
-                    child: Center(
-                        child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/icons/store-card/shopping-cart.svg',
-                          height: sdp_fromPX(context, 40),
-                          width: sdp_fromPX(context, 40),
+                      Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                      Text(
+                        '250 на 30 дней',
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: sdp_fromPX(context, 28),
+                          fontWeight: FontWeight.w600,
                         ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        Text(
-                          '250 на 30 дней',
-                          style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: sdp_fromPX(context, 30),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    )),
+                      ),
+                    ]),
                   ),
-                ),
-                Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                ButtonAnimator(
-                  onTap: () {},
-                  childWidget: Container(
-                    height: sdp_fromPX(context, 70),
-                    width: sdp_fromPX(context, 322),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: <Color>[Color.fromRGBO(255, 82, 82, 1), Color.fromRGBO(144, 45, 45, 1)],
-                        )),
-                    child: Center(
-                        child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/icons/closebg-white.svg',
-                          height: sdp_fromPX(context, 37),
-                          width: sdp_fromPX(context, 37),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        Text(
-                          'Отписаться',
-                          style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1),
-                            fontSize: sdp_fromPX(context, 30),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    )),
-                  ),
-                ),
+                )
               ],
             ),
-            Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: sdp_fromPX(context, 20), top: sdp_fromPX(context, 20)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Доступные услуги',
-                        style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500),
+            ButtonAnimator(
+              onTap: () {},
+              childWidget: Container(
+                height: sdp_fromPX(context, 70),
+                width: sdp_fromPX(context, 322),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: <Color>[
+                        Color.fromRGBO(54, 119, 80, 1),
+                        Color.fromRGBO(56, 205, 116, 1),
+                      ],
+                    )),
+                child: Center(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/store-card/shopping-cart.svg',
+                      height: sdp_fromPX(context, 40),
+                      width: sdp_fromPX(context, 40),
+                    ),
+                    Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                    Text(
+                      '250 на 30 дней',
+                      style: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        fontSize: sdp_fromPX(context, 30),
+                        fontWeight: FontWeight.w500,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: sdp_fromPX(context, 300),
-                        ),
+                    ),
+                  ],
+                )),
+              ),
+            ),
+            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
+            ButtonAnimator(
+              onTap: () {},
+              childWidget: Container(
+                height: sdp_fromPX(context, 70),
+                width: sdp_fromPX(context, 322),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: <Color>[Color.fromRGBO(255, 82, 82, 1), Color.fromRGBO(144, 45, 45, 1)],
+                    )),
+                child: Center(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/closebg-white.svg',
+                      height: sdp_fromPX(context, 37),
+                      width: sdp_fromPX(context, 37),
+                    ),
+                    Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                    Text(
+                      'Отписаться',
+                      style: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        fontSize: sdp_fromPX(context, 30),
+                        fontWeight: FontWeight.w500,
                       ),
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'ДЕЙСТВУЕТ ДО: ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: sdp_fromPX(context, 34),
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w300,
-                                height: 0,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'ДД.ММ.ГГГГ',
-                              style: TextStyle(
-                                color: Color(0xFF69D666),
-                                fontSize: sdp_fromPX(context, 34),
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w600,
-                                height: 0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                CheckList(
-                  data: servicesData,
-                  secondText: true,
-                  height: sdp_fromPX(context, 637),
-                  width: sdp_fromPX(context, 1200),
-                ),
-              ],
+                    ),
+                  ],
+                )),
+              ),
             ),
           ],
         ),
-      ),
+        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: sdp_fromPX(context, 20), top: sdp_fromPX(context, 20)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Доступные услуги',
+                    style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 34), fontWeight: FontWeight.w500),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: sdp_fromPX(context, 300),
+                    ),
+                  ),
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'ДЕЙСТВУЕТ ДО: ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: sdp_fromPX(context, 34),
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w300,
+                            height: 0,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'ДД.ММ.ГГГГ',
+                          style: TextStyle(
+                            color: Color(0xFF69D666),
+                            fontSize: sdp_fromPX(context, 34),
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
+            CheckList(
+              data: servicesData,
+              secondText: true,
+              widthFirstCell: sdp_fromPX(context, 750),
+              height: sdp_fromPX(context, 650),
+              width: sdp_fromPX(context, 1120),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

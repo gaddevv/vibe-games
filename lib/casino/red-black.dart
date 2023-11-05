@@ -14,7 +14,7 @@ redBlack(BuildContext context) {
       builder: (BuildContext context) {
         return StatefulBuilder(builder: (context, setState) {
           return Scaffold(
-            backgroundColor: Colors.black12,
+            backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
                 child: Center(
               child: Padding(
@@ -28,8 +28,8 @@ redBlack(BuildContext context) {
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                       colors: [
-                        Color.fromRGBO(0, 0, 0, 1),
-                        Color.fromRGBO(60, 21, 111, 1),
+                        Color.fromRGBO(0, 0, 0, 0.95),
+                        Color.fromRGBO(60, 21, 111, 0.95),
                       ],
                     ),
                   ),
@@ -103,7 +103,7 @@ redBlack(BuildContext context) {
                             children: [
                               Padding(
                                 padding: EdgeInsets.only(
-                                  top: sdp_fromPX(context, 62),
+                                  top: sdp_fromPX(context, 58),
                                 ),
                                 child: Text(
                                   '1 ряд',
@@ -146,7 +146,7 @@ redBlack(BuildContext context) {
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                            top: sdp_fromPX(context, 64),
+                            top: sdp_fromPX(context, 58),
                             left: sdp_fromPX(context, 40),
                           ),
                           child: Container(
@@ -157,10 +157,10 @@ redBlack(BuildContext context) {
                               physics: NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisSpacing: sdp_fromPX(context, 30),
-                                  crossAxisSpacing: sdp_fromPX(context, 30),
-                                  crossAxisCount: 4,
-                                  childAspectRatio: sdp_fromPX(context, 3.5)),
+                                mainAxisSpacing: sdp_fromPX(context, 30),
+                                crossAxisSpacing: sdp_fromPX(context, 30),
+                                crossAxisCount: 4,
+                              ),
                               itemCount: 40,
                               itemBuilder: (context, index) {
                                 final isEvenRow = (index ~/ 4) % 2 == 0;
@@ -179,6 +179,8 @@ redBlack(BuildContext context) {
                                     child: Padding(
                                       padding: EdgeInsets.all(sdp_fromPX(context, 5)),
                                       child: Container(
+                                        height: sdp_fromPX(context, 50),
+                                        width: sdp_fromPX(context, 50),
                                         decoration: BoxDecoration(
                                           color: isSelected[index]
                                               ? Color.fromRGBO(55, 161, 98, 0.8)
@@ -207,7 +209,7 @@ redBlack(BuildContext context) {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: sdp_fromPX(context, 64), left: sdp_fromPX(context, 214)),
+                      padding: EdgeInsets.only(top: sdp_fromPX(context, 58), left: sdp_fromPX(context, 214)),
                       child: Row(
                         children: [
                           ButtonAnimator(

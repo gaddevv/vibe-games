@@ -316,8 +316,9 @@ class _ScreenState extends State<Screen> {
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 50))),
             Padding(
-              padding: EdgeInsets.only(left: sdp_fromPX(context, 126)),
+              padding: EdgeInsets.only(left: sdp_fromPX(context, 80)),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FiveButtonBar(
                     activeGradient: bluePurpleGradient,
@@ -326,9 +327,10 @@ class _ScreenState extends State<Screen> {
                     secondButtonText: 'Услуги',
                     thirdButtonText: 'Рулетки',
                     fourthButtonText: 'Матрешка+',
-                    contentPadding: sdp_fromPX(context, 64),
+                    contentPadding: sdp_fromPX(context, 54),
                     state: type,
                     onPressed: set_type,
+                    width: 740,
                     firstButtonValue: 0,
                     secondButtonValue: 1,
                     thirdButtonValue: 2,
@@ -394,21 +396,26 @@ class _ScreenState extends State<Screen> {
                   Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
                   Container(
                     height: sdp_fromPX(context, 73),
+                    width: sdp_fromPX(context, 284),
                     decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
                         SvgPicture.asset(
                           'assets/icons/ruble.svg',
                           height: sdp_fromPX(context, 42),
                           width: sdp_fromPX(context, 42),
                         ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        Text(
-                          '12 000 126',
-                          style: TextStyle(fontSize: sdp_fromPX(context, 32), fontWeight: FontWeight.w500, color: Color.fromRGBO(255, 255, 255, 1)),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 5))),
+                        FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            '12 000 126',
+                            style: TextStyle(fontSize: sdp_fromPX(context, 32), fontWeight: FontWeight.w500, color: Color.fromRGBO(255, 255, 255, 1)),
+                          ),
                         ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
                         ButtonAnimator(
                           onTap: () {
                             setState(() {
@@ -434,7 +441,7 @@ class _ScreenState extends State<Screen> {
                     decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
                     child: Row(
                       children: [
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
                         SvgPicture.asset(
                           'assets/icons/coin.svg',
                           height: sdp_fromPX(context, 42),
@@ -445,7 +452,7 @@ class _ScreenState extends State<Screen> {
                           '120',
                           style: TextStyle(fontSize: sdp_fromPX(context, 32), fontWeight: FontWeight.w500, color: Color.fromRGBO(255, 255, 255, 1)),
                         ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
                         ButtonAnimator(
                           onTap: () {
                             setState(() {
@@ -498,9 +505,9 @@ class _ScreenState extends State<Screen> {
             ),
             Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
             Row(
-              mainAxisAlignment: trclassText != null || type == 4 || type == 5 ? MainAxisAlignment.start : MainAxisAlignment.center,
+              mainAxisAlignment: trclassText != null || type == 2 || type == 4 || type == 5 ? MainAxisAlignment.start : MainAxisAlignment.center,
               children: [
-                if (trclassText != null || type == 4 || type == 5)
+                if (trclassText != null || type == 4 || type == 5 || type == 2)
                   Padding(
                     padding: EdgeInsets.only(
                       left: sdp_fromPX(context, 100),
@@ -514,7 +521,7 @@ class _ScreenState extends State<Screen> {
                             trclassText = null;
                             activeTransportClass = false;
                           }
-                          if (type == 4 || type == 5) {
+                          if (type == 4 || type == 5 || type == 2) {
                             type = 0;
                             categoryText = 'Акции и специальные предложения';
                           }
@@ -522,8 +529,10 @@ class _ScreenState extends State<Screen> {
                       },
                     ),
                   ),
-                if (trclassText != null || type == 4 || type == 5) Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 330))),
+                if (trclassText != null || type == 4 || type == 5 || type == 2) Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 330))),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(categoryText!,
                         style:
@@ -555,129 +564,131 @@ class _ScreenState extends State<Screen> {
                 children: [
                   Container(
                     height: sdp_fromPX(context, 570),
-                    width: sdp_fromPX(context, 1920),
                     color: Color.fromRGBO(0, 0, 0, 0.6),
                   ),
-                  Container(
-                    height: sdp_fromPX(context, type == 0 ? 570 : 740),
-                    width: sdp_fromPX(context, 1920),
-                    child: type == 1
-                        ? ServicesScreen()
-                        : type == 2
-                            ? RouletteScreen()
-                            : type == 3
-                                ? MatryoshkaScreen()
-                                : type == 4
-                                    ? DonatPayScreen()
-                                    : type == 5
-                                        ? CoinPayScreen()
-                                        : ListView.builder(
-                                            scrollDirection: Axis.horizontal,
-                                            physics: viewCar == true ? NeverScrollableScrollPhysics() : ClampingScrollPhysics(),
-                                            padding: EdgeInsets.symmetric(horizontal: sdp_fromPX(context, 100)),
-                                            itemCount: currentCategoryData.length,
-                                            itemBuilder: (context, index) {
-                                              final String image = currentCategoryData[index]['image'];
-                                              final String? icon = currentCategoryData[index]['icon'];
+                  Center(
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: sdp_fromPX(context, type == 0 ? 570 : 740),
+                      child: type == 1
+                          ? ServicesScreen()
+                          : type == 2
+                              ? RouletteScreen()
+                              : type == 3
+                                  ? MatryoshkaScreen()
+                                  : type == 4
+                                      ? DonatPayScreen()
+                                      : type == 5
+                                          ? CoinPayScreen()
+                                          : ListView.builder(
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.horizontal,
+                                              physics: viewCar == true ? NeverScrollableScrollPhysics() : ClampingScrollPhysics(),
+                                              padding: EdgeInsets.symmetric(horizontal: sdp_fromPX(context, 100)),
+                                              itemCount: currentCategoryData.length,
+                                              itemBuilder: (context, index) {
+                                                final String image = currentCategoryData[index]['image'];
+                                                final String? icon = currentCategoryData[index]['icon'];
 
-                                              final title = currentCategoryData[index]['title'];
-                                              final subtitle = currentCategoryData[index]['subtitle'];
-                                              final Gradient? gradient = currentCategoryData[index]['gradient'];
-                                              final Color? color = currentCategoryData[index]['color'];
-                                              final String? subtext = currentCategoryData[index]['subtext'];
-                                              final String? subtextTwo = currentCategoryData[index]['subtextTwo'];
-                                              final String? saletext = currentCategoryData[index]['saletext'];
-                                              final String? buttontext = currentCategoryData[index]['buttonText'];
-                                              confirmation(BuildContext context) {
-                                                showDialog(
-                                                    useSafeArea: false,
-                                                    context: context,
-                                                    builder: (BuildContext context) {
-                                                      return ConfirmationAlert(
-                                                        title: 'Подтверждение',
-                                                        text: 'Вы действительно ',
-                                                        richText: 'согласны приобрести данный товар за ${buttontext ?? subtext} руб? ',
-                                                        cancelButton: true,
-                                                        acceptButtonText: 'Купить',
-                                                        onTapAccept: () {
-                                                          setState(() {
-                                                            Navigator.pop(context);
-                                                          });
-                                                        },
-                                                        onTapCancel: () {
-                                                          setState(() {
-                                                            Navigator.pop(context);
-                                                          });
-                                                        },
-                                                      );
-                                                    });
-                                              }
+                                                final title = currentCategoryData[index]['title'];
+                                                final subtitle = currentCategoryData[index]['subtitle'];
+                                                final Gradient? gradient = currentCategoryData[index]['gradient'];
+                                                final Color? color = currentCategoryData[index]['color'];
+                                                final String? subtext = currentCategoryData[index]['subtext'];
+                                                final String? subtextTwo = currentCategoryData[index]['subtextTwo'];
+                                                final String? saletext = currentCategoryData[index]['saletext'];
+                                                final String? buttontext = currentCategoryData[index]['buttonText'];
+                                                confirmation(BuildContext context) {
+                                                  showDialog(
+                                                      useSafeArea: false,
+                                                      context: context,
+                                                      builder: (BuildContext context) {
+                                                        return ConfirmationAlert(
+                                                          title: 'Подтверждение',
+                                                          text: 'Вы действительно ',
+                                                          richText: 'согласны приобрести данный товар за ${buttontext ?? subtext} руб? ',
+                                                          cancelButton: true,
+                                                          acceptButtonText: 'Купить',
+                                                          onTapAccept: () {
+                                                            setState(() {
+                                                              Navigator.pop(context);
+                                                            });
+                                                          },
+                                                          onTapCancel: () {
+                                                            setState(() {
+                                                              Navigator.pop(context);
+                                                            });
+                                                          },
+                                                        );
+                                                      });
+                                                }
 
-                                              return viewCar == true
-                                                  ? BuyCarCard(
-                                                      image: currentCategoryData[index]['image'],
-                                                      title: currentCategoryData[index]['title'],
-                                                      speed: currentCategoryData[index]['speed'],
-                                                      boost: currentCategoryData[index]['boost'],
-                                                      trunk: currentCategoryData[index]['trunk'],
-                                                      buttonText: currentCategoryData[index]['buttonText'],
-                                                      onTap: () {
-                                                        confirmation(context);
-                                                      },
-                                                    )
-                                                  : Padding(
-                                                      padding: EdgeInsets.only(left: sdp_fromPX(context, 40)),
-                                                      child: StoreCard(
-                                                        image: image,
-                                                        icon: icon,
+                                                return viewCar == true
+                                                    ? BuyCarCard(
+                                                        image: currentCategoryData[index]['image'],
+                                                        title: currentCategoryData[index]['title'],
+                                                        speed: currentCategoryData[index]['speed'],
+                                                        boost: currentCategoryData[index]['boost'],
+                                                        trunk: currentCategoryData[index]['trunk'],
+                                                        buttonText: currentCategoryData[index]['buttonText'],
                                                         onTap: () {
-                                                          title == 'Эконом'
-                                                              ? {
-                                                                  trclassText = '(Эконом)',
-                                                                  activeTransportClass = true,
-                                                                  set_category(2),
-                                                                }
-                                                              : title == 'Средний'
-                                                                  ? {
-                                                                      trclassText = '(Средний)',
-                                                                      activeTransportClass = true,
-                                                                      set_category(2),
-                                                                    }
-                                                                  : title == 'Премиум'
-                                                                      ? {
-                                                                          trclassText = '(Премиум)',
-                                                                          activeTransportClass = true,
-                                                                          set_category(2),
-                                                                        }
-                                                                      : title == 'Яхты'
-                                                                          ? {
-                                                                              trclassText = '(Яхты)',
-                                                                              activeTransportClass = true,
-                                                                              set_category(2),
-                                                                            }
-                                                                          : {
-                                                                              if (trclassText != null)
-                                                                                {
-                                                                                  viewCar = true,
-                                                                                }
-                                                                              else
-                                                                                {
-                                                                                  confirmation(context),
-                                                                                },
-                                                                            };
-                                                          setState(() {});
+                                                          confirmation(context);
                                                         },
-                                                        title: title,
-                                                        subtitle: subtitle,
-                                                        gradient: gradient,
-                                                        color: color,
-                                                        subText: subtext,
-                                                        subtextTwo: subtextTwo,
-                                                        saleText: saletext,
-                                                        buttonText: buttontext,
-                                                      ),
-                                                    );
-                                            }),
+                                                      )
+                                                    : Padding(
+                                                        padding: EdgeInsets.only(left: sdp_fromPX(context, 40)),
+                                                        child: StoreCard(
+                                                          image: image,
+                                                          icon: icon,
+                                                          onTap: () {
+                                                            title == 'Эконом'
+                                                                ? {
+                                                                    trclassText = '(Эконом)',
+                                                                    activeTransportClass = true,
+                                                                    set_category(2),
+                                                                  }
+                                                                : title == 'Средний'
+                                                                    ? {
+                                                                        trclassText = '(Средний)',
+                                                                        activeTransportClass = true,
+                                                                        set_category(2),
+                                                                      }
+                                                                    : title == 'Премиум'
+                                                                        ? {
+                                                                            trclassText = '(Премиум)',
+                                                                            activeTransportClass = true,
+                                                                            set_category(2),
+                                                                          }
+                                                                        : title == 'Яхты'
+                                                                            ? {
+                                                                                trclassText = '(Яхты)',
+                                                                                activeTransportClass = true,
+                                                                                set_category(2),
+                                                                              }
+                                                                            : {
+                                                                                if (trclassText != null)
+                                                                                  {
+                                                                                    viewCar = true,
+                                                                                  }
+                                                                                else
+                                                                                  {
+                                                                                    confirmation(context),
+                                                                                  },
+                                                                              };
+                                                            setState(() {});
+                                                          },
+                                                          title: title,
+                                                          subtitle: subtitle,
+                                                          gradient: gradient,
+                                                          color: color,
+                                                          subText: subtext,
+                                                          subtextTwo: subtextTwo,
+                                                          saleText: saletext,
+                                                          buttonText: buttontext,
+                                                        ),
+                                                      );
+                                              }),
+                    ),
                   ),
                 ],
               ),

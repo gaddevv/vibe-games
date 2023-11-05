@@ -13,4 +13,3 @@ final Shader whiteGradient = LinearGradient(
     Color.fromRGBO(255, 255, 255, 1),
   ],
 ).createShader(Rect.fromLTWH(0.0, 0.0, 30.0, 30.0));
-

@@ -8,7 +8,7 @@ import 'package:vibes_studio/elements/sdp.dart';
 import 'package:vibes_studio/elements/separeted-formatter.dart';
 
 jatpack(BuildContext context) {
-  List<String> icons = [
+  List<String> image = [
     'assets/icons/grape.svg',
     'assets/icons/diamond.svg',
     'assets/icons/cherry.svg',
@@ -32,18 +32,18 @@ jatpack(BuildContext context) {
     'assets/icons/7.svg',
   ];
 
-  List<String> shuffledIcons = [];
+  List<String> shuffledImage = [];
   void shuffleImages() {
     final random = Random();
-    for (int i = shuffledIcons.length - 1; i > 0; i--) {
+    for (int i = shuffledImage.length - 1; i > 0; i--) {
       int j = random.nextInt(i + 1);
-      String temp = shuffledIcons[i];
-      shuffledIcons[i] = shuffledIcons[j];
-      shuffledIcons[j] = temp;
+      String temp = shuffledImage[i];
+      shuffledImage[i] = shuffledImage[j];
+      shuffledImage[j] = temp;
     }
   }
 
-  shuffledIcons = List.from(icons);
+  shuffledImage = List.from(image);
 
   showDialog(
       barrierColor: Colors.transparent,
@@ -188,7 +188,7 @@ jatpack(BuildContext context) {
                                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 3,
                                         ),
-                                        itemCount: shuffledIcons.length,
+                                        itemCount: shuffledImage.length,
                                         itemBuilder: (context, index) {
                                           return Padding(
                                             padding: EdgeInsets.all(sdp_fromPX(context, 30)),
@@ -196,7 +196,7 @@ jatpack(BuildContext context) {
                                               height: sdp_fromPX(context, 188),
                                               width: sdp_fromPX(context, 188),
                                               child: Center(
-                                                child: SvgPicture.asset(shuffledIcons[index]),
+                                                child: SvgPicture.asset(shuffledImage[index]),
                                               ),
                                             ),
                                           );

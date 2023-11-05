@@ -14,15 +14,13 @@ class DonatCard extends StatefulWidget {
 }
 
 class _DonatCardState extends State<DonatCard> {
-
-  
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(color: Color(0xFF291D37), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)), gradient: widget.gradient),
       child: Container(
         height: sdp_fromPX(context, 178),
-        width: sdp_fromPX(context, 398),
+        width: sdp_fromPX(context, 360),
         decoration: BoxDecoration(color: Color(0xFF291D37), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)), gradient: widget.gradient),
         child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
           Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 25))),

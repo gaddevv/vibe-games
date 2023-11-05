@@ -30,8 +30,8 @@ class _CheckListState extends State<CheckList> {
 
   Widget build(BuildContext context) {
     return Container(
-      height: widget.height ?? 100,
-      width: widget.width ?? 100,
+      height: widget.height,
+      width: widget.width,
       color: Color.fromRGBO(41, 29, 55, 1),
       child: Padding(
         padding: EdgeInsets.only(
