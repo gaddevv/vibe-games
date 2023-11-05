@@ -29,8 +29,8 @@ class HomeScreen extends StatelessWidget {
               child: Image.asset(
                 'assets/images/carbackground.png',
                 fit: BoxFit.fill,
-                height: sdp_fromPX(context, 1080),
-                width: sdp_fromPX(context, 2339),
+                height: double.infinity,
+                width: double.infinity,
               ),
             ),
             Center(

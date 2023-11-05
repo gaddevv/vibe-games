@@ -19,7 +19,6 @@ class _DonatPayScreenState extends State<DonatPayScreen> {
     return Padding(
       padding: EdgeInsets.only(top: sdp_fromPX(context, 40)),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

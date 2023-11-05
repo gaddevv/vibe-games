@@ -108,11 +108,11 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
     required String action,
   }) {
     showDialog(
-        barrierColor: Colors.black87,
+        barrierColor: Colors.transparent,
         context: context,
         builder: (BuildContext context) {
           return Scaffold(
-              backgroundColor: Colors.black.withOpacity(.2),
+              backgroundColor: Colors.transparent,
               body: Center(
                 child: Padding(
                   padding: EdgeInsets.only(
@@ -120,14 +120,18 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                   child: Container(
                     height: sdp_fromPX(context, 916),
                     width: sdp_fromPX(context, 1060),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(sdp_fromPX(context, 40)),
+                    decoration: ShapeDecoration(
                       gradient: goodPrize
                           ? LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              stops: [
+                                0.001,
+                                0.5,
+                              ],
+                              // radius: sdp_fromPX(context, 1.6),
                               colors: [
-                                Color.fromRGBO(255, 168, 0, 0.9),
+                                Color.fromARGB(255, 255, 166, 0),
                                 Color.fromRGBO(95, 48, 156, 1),
                               ],
                             )
@@ -139,6 +143,9 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                                 Color.fromRGBO(27, 4, 37, 1),
                               ],
                             ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(sdp_fromPX(context, 40)),
+                      ),
                     ),
                     child: Column(children: [
                       Padding(
@@ -165,24 +172,9 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                           height: sdp_fromPX(context, 575),
                           width: sdp_fromPX(context, 900),
                           decoration: BoxDecoration(
-                              border: Border.all(width: sdp_fromPX(context, 1), color: Color.fromRGBO(255, 168, 0, 0.3)),
-                              gradient: goodPrize
-                                  ? LinearGradient(
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
-                                      colors: [
-                                        Color.fromRGBO(255, 170, 0, 0.3),
-                                        Color.fromRGBO(95, 48, 156, 1),
-                                      ],
-                                    )
-                                  : LinearGradient(
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
-                                      colors: [
-                                        Color.fromRGBO(95, 48, 156, 0.7),
-                                        Color.fromRGBO(27, 4, 37, 1),
-                                      ],
-                                    ),
+                              border: Border.all(
+                                  width: sdp_fromPX(context, 1),
+                                  color: goodPrize ? Color.fromRGBO(255, 168, 0, 0.3) : Color.fromRGBO(175, 3, 251, 0.3)),
                               borderRadius: BorderRadius.circular(sdp_fromPX(context, 30))),
                           child: Padding(
                             padding: EdgeInsets.only(
@@ -214,7 +206,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                               height: sdp_fromPX(context, 84),
                               width: sdp_fromPX(context, 448),
                               decoration: BoxDecoration(
-                                  color: Color.fromRGBO(255, 168, 0, 0.2),
+                                  color: goodPrize ? Color.fromRGBO(255, 168, 0, 0.2) : Color(0x33AF03FB),
                                   borderRadius: BorderRadius.circular(sdp_fromPX(context, 50)),
                                   border: Border.all(width: sdp_fromPX(context, 2), color: Color.fromRGBO(255, 168, 0, 0.3))),
                               child: Center(
@@ -239,152 +231,155 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.topRight,
-        children: [
-          Container(
-            height: sdp_fromPX(context, 1080),
-            width: sdp_fromPX(context, 2340),
-            child: Image.asset(
-              'assets/images/wheelFortuneBG.png',
-              fit: BoxFit.fill,
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: Stack(
+          alignment: Alignment.topRight,
+          children: [
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              child: Image.asset(
+                'assets/images/wheelFortuneBG.png',
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          Center(
-            child: Container(
-              height: sdp_fromPX(context, 1080),
-              width: sdp_fromPX(context, 1450),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: sdp_fromPX(context, 160),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          wheelSpun ? 'Попытки на сегодня закончились' : 'Будет доступно через 1 час 23 мин',
-                          style: TextStyle(color: Color.fromRGBO(236, 127, 243, 1), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: sdp_fromPX(context, 140),
+            Center(
+              child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: sdp_fromPX(context, 160),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            wheelSpun ? 'Попытки на сегодня закончились' : 'Будет доступно через 1 час 23 мин',
+                            style: TextStyle(color: Color.fromRGBO(236, 127, 243, 1), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
                           ),
-                          child: Text(
-                            'Колесо фортуны',
-                            style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 60), fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: sdp_fromPX(context, 20),
-                          ),
-                          child: Text(
-                            'Колесо фортуны можно крутить каждый день\nпосле 2 часов, проведенных в игре',
-                            style:
-                                TextStyle(color: Color.fromRGBO(255, 255, 255, 0.60), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: sdp_fromPX(context, 20),
-                          ),
-                          child: RichText(
-                            text: TextSpan(
-                              text: 'При покупке ',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(255, 255, 255, 0.60), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
-                              children: const <TextSpan>[
-                                TextSpan(
-                                  text: 'Матрешка+',
-                                  style: TextStyle(color: Color.fromRGBO(255, 168, 0, 1), fontWeight: FontWeight.w500),
-                                ),
-                                TextSpan(
-                                  text: ', колесо можно \nпрокрутить второй раз после 4 часов игры',
-                                  style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.60), fontWeight: FontWeight.w400),
-                                ),
-                              ],
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: sdp_fromPX(context, 140),
+                            ),
+                            child: Text(
+                              'Колесо фортуны',
+                              style:
+                                  TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 60), fontWeight: FontWeight.w700),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: sdp_fromPX(context, 36),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: sdp_fromPX(context, 20),
+                            ),
+                            child: Text(
+                              'Колесо фортуны можно крутить каждый день\nпосле 2 часов, проведенных в игре',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(255, 255, 255, 0.60), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
+                            ),
                           ),
-                        ),
-                        ButtonAnimator(
-                          onTap: () {
-                            wheelSpun ? () {} : _rotateWheel();
-                          },
-                          childWidget: Container(
-                            height: sdp_fromPX(context, 87),
-                            width: sdp_fromPX(context, 480),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(sdp_fromPX(context, 50)),
-                                color: wheelSpun ? Color.fromRGBO(186, 54, 248, 1) : Color.fromRGBO(255, 168, 0, 1)),
-                            child: Center(
-                              child: Text(
-                                wheelSpun ? 'Купить Матрешка+' : 'Крутить колесо',
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: sdp_fromPX(context, 20),
+                            ),
+                            child: RichText(
+                              text: TextSpan(
+                                text: 'При покупке ',
                                 style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 26), fontWeight: FontWeight.w700),
+                                    color: Color.fromRGBO(255, 255, 255, 0.60), fontSize: sdp_fromPX(context, 25), fontWeight: FontWeight.w400),
+                                children: const <TextSpan>[
+                                  TextSpan(
+                                    text: 'Матрешка+',
+                                    style: TextStyle(color: Color.fromRGBO(255, 168, 0, 1), fontWeight: FontWeight.w500),
+                                  ),
+                                  TextSpan(
+                                    text: ', колесо можно \nпрокрутить второй раз после 4 часов игры',
+                                    style: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.60), fontWeight: FontWeight.w400),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: sdp_fromPX(context, 68)),
-                        child: SvgPicture.asset(
-                          'assets/icons/rectangle.svg',
-                          height: sdp_fromPX(context, 54),
-                          width: sdp_fromPX(context, 52),
-                        ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: sdp_fromPX(context, 36),
+                            ),
+                          ),
+                          ButtonAnimator(
+                            onTap: () {
+                              wheelSpun ? () {} : _rotateWheel();
+                            },
+                            childWidget: Container(
+                              height: sdp_fromPX(context, 87),
+                              width: sdp_fromPX(context, 480),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(sdp_fromPX(context, 50)),
+                                  color: wheelSpun ? Color.fromRGBO(186, 54, 248, 1) : Color.fromRGBO(255, 168, 0, 1)),
+                              child: Center(
+                                child: Text(
+                                  wheelSpun ? 'Купить Матрешка+' : 'Крутить колесо',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 26), fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
-                      Container(
-                        alignment: Alignment.topCenter,
-                        child: Transform.rotate(
-                          angle: _rotationAngle * (3.14159265359 / 180),
-                          child: Container(
-                            height: sdp_fromPX(context, 860),
-                            width: sdp_fromPX(context, 860),
-                            child: Image.asset('assets/images/wheel.png'),
+                    ),
+                    Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: sdp_fromPX(context, 68)),
+                          child: SvgPicture.asset(
+                            'assets/icons/rectangle.svg',
+                            height: sdp_fromPX(context, 54),
+                            width: sdp_fromPX(context, 52),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: sdp_fromPX(context, 68),
-              right: sdp_fromPX(context, 40),
-            ),
-            child: Container(
-              height: sdp_fromPX(context, 96),
-              width: sdp_fromPX(context, 96),
-              child: ButtonAnimator(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                childWidget: SvgPicture.asset(
-                  'assets/icons/closebg.svg',
+                        Container(
+                          alignment: Alignment.topCenter,
+                          child: Transform.rotate(
+                            angle: _rotationAngle * (3.14159265359 / 180),
+                            child: Container(
+                              height: sdp_fromPX(context, 860),
+                              width: sdp_fromPX(context, 860),
+                              child: Image.asset('assets/images/wheel.png'),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.only(
+                top: sdp_fromPX(context, 68),
+                right: sdp_fromPX(context, 40),
+              ),
+              child: Container(
+                height: sdp_fromPX(context, 96),
+                width: sdp_fromPX(context, 96),
+                child: ButtonAnimator(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  childWidget: SvgPicture.asset(
+                    'assets/icons/closebg.svg',
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

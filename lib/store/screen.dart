@@ -187,9 +187,13 @@ class _ScreenState extends State<Screen> {
   void set_type(int? value) {
     setState(() {
       type = value;
+      trclassText = null;
+
       if (type == 0 || type == null) {
         type = value;
+        category = 0;
         categoryText = 'Акции и специальные предложения';
+        set_category(0);
       }
       if (type == 1) {
         categoryText = 'Услуги';
@@ -320,79 +324,103 @@ class _ScreenState extends State<Screen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FiveButtonBar(
-                    activeGradient: bluePurpleGradient,
-                    inactiveGradient: whiteGradient,
-                    firstButtonText: 'Товары',
-                    secondButtonText: 'Услуги',
-                    thirdButtonText: 'Рулетки',
-                    fourthButtonText: 'Матрешка+',
-                    contentPadding: sdp_fromPX(context, 54),
-                    state: type,
-                    onPressed: set_type,
-                    width: 740,
-                    firstButtonValue: 0,
-                    secondButtonValue: 1,
-                    thirdButtonValue: 2,
-                    fourthButtonValue: 3,
-                  ),
-                  Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 64))),
-                  ButtonAnimator(
-                    onTap: () {
-                      specialOffers(context);
-                    },
-                    childWidget: Container(
-                      height: sdp_fromPX(context, 90),
-                      width: sdp_fromPX(context, 76),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            height: sdp_fromPX(context, 73),
-                            width: sdp_fromPX(context, 73),
-                            padding: EdgeInsets.only(
-                              top: sdp_fromPX(context, 10),
-                              left: sdp_fromPX(context, 10),
-                              right: sdp_fromPX(context, 7),
-                              bottom: sdp_fromPX(context, 10),
-                            ),
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  colors: [Color.fromRGBO(128, 255, 125, 1), Color.fromRGBO(66, 131, 64, 1)],
-                                ),
-                                borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
-                            child: SvgPicture.asset(
-                              'assets/icons/discount.svg',
-                              height: sdp_fromPX(context, 52),
-                              width: sdp_fromPX(context, 52),
-                            ),
-                          ),
-                          Positioned(
-                            top: 0,
-                            left: sdp_fromPX(context, 38),
-                            child: Container(
-                              height: sdp_fromPX(context, 26),
-                              width: sdp_fromPX(context, 38),
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(255, 24, 24, 1), borderRadius: BorderRadius.circular(sdp_fromPX(context, 50000))),
-                              child: Text(
-                                '12',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: sdp_fromPX(context, 20),
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
+                  if (type == 4 || type == 5)
+                    Padding(
+                      padding: EdgeInsets.only(right: sdp_fromPX(context, 480)),
+                      child: BackArrowButton(
+                        onTap: () {
+                          setState(() {
+                            if (trclassText != null) {
+                              if (viewCar) viewCar = false;
+                              currentCategoryData = categoryData[2]!;
+                              trclassText = null;
+                              activeTransportClass = false;
+                            }
+                            if (type == 4 || type == 5 || type == 2) {
+                              type = 0;
+                              category = 0;
+                              categoryText = 'Акции и специальные предложения';
+                              set_category(0);
+                            }
+                          });
+                        },
                       ),
                     ),
-                  ),
+                  if (type != 4 && type != 5)
+                    FiveButtonBar(
+                      activeGradient: bluePurpleGradient,
+                      inactiveGradient: whiteGradient,
+                      firstButtonText: 'Товары',
+                      secondButtonText: 'Услуги',
+                      thirdButtonText: 'Рулетки',
+                      fourthButtonText: 'Матрешка+',
+                      contentPadding: sdp_fromPX(context, 54),
+                      state: type,
+                      onPressed: set_type,
+                      width: 740,
+                      firstButtonValue: 0,
+                      secondButtonValue: 1,
+                      thirdButtonValue: 2,
+                      fourthButtonValue: 3,
+                    ),
+                  Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 64))),
+                  if (type != 4 && type != 5)
+                    ButtonAnimator(
+                      onTap: () {
+                        specialOffers(context);
+                      },
+                      childWidget: Container(
+                        height: sdp_fromPX(context, 90),
+                        width: sdp_fromPX(context, 76),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              height: sdp_fromPX(context, 73),
+                              width: sdp_fromPX(context, 73),
+                              padding: EdgeInsets.only(
+                                top: sdp_fromPX(context, 10),
+                                left: sdp_fromPX(context, 10),
+                                right: sdp_fromPX(context, 7),
+                                bottom: sdp_fromPX(context, 10),
+                              ),
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: [Color.fromRGBO(128, 255, 125, 1), Color.fromRGBO(66, 131, 64, 1)],
+                                  ),
+                                  borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
+                              child: SvgPicture.asset(
+                                'assets/icons/discount.svg',
+                                height: sdp_fromPX(context, 52),
+                                width: sdp_fromPX(context, 52),
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              left: sdp_fromPX(context, 38),
+                              child: Container(
+                                height: sdp_fromPX(context, 26),
+                                width: sdp_fromPX(context, 38),
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(255, 24, 24, 1), borderRadius: BorderRadius.circular(sdp_fromPX(context, 50000))),
+                                child: Text(
+                                  '12',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: sdp_fromPX(context, 20),
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
                   Container(
                     height: sdp_fromPX(context, 73),
@@ -502,67 +530,115 @@ class _ScreenState extends State<Screen> {
                 ],
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
-            Row(
-              mainAxisAlignment: trclassText != null || type == 2 || type == 4 || type == 5 ? MainAxisAlignment.start : MainAxisAlignment.center,
-              children: [
-                if (trclassText != null || type == 4 || type == 5 || type == 2)
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: sdp_fromPX(context, 100),
-                    ),
-                    child: BackArrowButton(
-                      onTap: () {
-                        setState(() {
-                          if (trclassText != null) {
-                            if (viewCar) viewCar = false;
-                            currentCategoryData = categoryData[2]!;
-                            trclassText = null;
-                            activeTransportClass = false;
-                          }
-                          if (type == 4 || type == 5 || type == 2) {
-                            type = 0;
-                            categoryText = 'Акции и специальные предложения';
-                          }
-                        });
-                      },
-                    ),
-                  ),
-                if (trclassText != null || type == 4 || type == 5 || type == 2) Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 330))),
-                Row(
+            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 41))),
+            Center(
+              child: Container(
+                height: sdp_fromPX(context, 70),
+                width: sdp_fromPX(context, 1600),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(categoryText!,
-                        style:
-                            TextStyle(fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500, foreground: Paint()..shader = whiteGradient)),
-                    Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
                     if (trclassText != null)
-                      ShaderMask(
-                        blendMode: BlendMode.srcATop,
-                        shaderCallback: (bounds) => LinearGradient(
-                          colors: <Color>[
-                            Color.fromRGBO(0, 133, 255, 1),
-                            Color.fromRGBO(167, 0, 255, 1),
-                          ],
-                        ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
-                        child: Text(
-                          trclassText!,
-                          style: TextStyle(
-                              fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500, foreground: Paint()..shader = bluePurpleGradient),
+                      Container(
+                        color: Colors.amber,
+                        child: BackArrowButton(
+                          onTap: () {
+                            setState(() {
+                              if (trclassText != null) {
+                                if (viewCar) viewCar = false;
+                                currentCategoryData = categoryData[2]!;
+                                trclassText = null;
+                                activeTransportClass = false;
+                              }
+                              if (type == 4 || type == 5 || type == 2) {
+                                type = 0;
+                                categoryText = 'Акции и специальные предложения';
+                              }
+                            });
+                          },
                         ),
                       ),
+                    if (type == 2)
+                      Padding(
+                        padding: EdgeInsets.only(right: sdp_fromPX(context, 600)),
+                      ),
+                    Container(
+                      width: sdp_fromPX(context, 1000),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
+                          Text(categoryText!,
+                              style: TextStyle(
+                                  fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500, foreground: Paint()..shader = whiteGradient)),
+                          Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                          if (trclassText != null)
+                            ShaderMask(
+                              blendMode: BlendMode.srcATop,
+                              shaderCallback: (bounds) => LinearGradient(
+                                colors: <Color>[
+                                  Color.fromRGBO(0, 133, 255, 1),
+                                  Color.fromRGBO(167, 0, 255, 1),
+                                ],
+                              ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
+                              child: Text(
+                                trclassText!,
+                                style: TextStyle(
+                                    fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500, foreground: Paint()..shader = bluePurpleGradient),
+                              ),
+                            ),
+                          if (type == 2)
+                            Padding(
+                              padding: EdgeInsets.only(left: sdp_fromPX(context, 350)),
+                              child: ButtonAnimator(
+                                childWidget: Container(
+                                  height: sdp_fromPX(context, 70),
+                                  width: sdp_fromPX(context, 274),
+                                  decoration: ShapeDecoration(
+                                    color: Color(0xFF24004F),
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(width: sdp_fromPX(context, 2), color: Color(0xFF7400FF)),
+                                      borderRadius: BorderRadius.circular(sdp_fromPX(context, 10)),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                          height: sdp_fromPX(context, 50),
+                                          width: sdp_fromPX(context, 50),
+                                          child: SvgPicture.asset(
+                                            'assets/icons/history-clock.svg',
+                                          )),
+                                      Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 11))),
+                                      Text(
+                                        'История',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: sdp_fromPX(context, 36),
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-              ],
+              ),
             ),
             Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
             Container(
-              height: sdp_fromPX(context, type == 0 ? 570 : 740),
+              height: sdp_fromPX(context, type == 0 ? 570 : 760),
               child: Stack(
                 children: [
                   Container(
-                    height: sdp_fromPX(context, 570),
+                    height: sdp_fromPX(context, type != 0 && type != 2 ? double.infinity : 570),
                     color: Color.fromRGBO(0, 0, 0, 0.6),
                   ),
                   Center(
