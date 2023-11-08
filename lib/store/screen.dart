@@ -267,367 +267,381 @@ class _ScreenState extends State<Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: type == 0
-          ? Container(
-              padding: EdgeInsets.symmetric(horizontal: sdp_fromPX(context, 100)),
-              height: sdp_fromPX(context, 140),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                  colors: [
-                    Color.fromRGBO(17, 0, 27, 1),
-                    Color.fromRGBO(112, 0, 255, 1),
-                  ],
-                ),
-              ),
-              child: FiveButtonBar(
-                firstButtonText: 'Акции',
-                secondButtonText: 'Игровые пакеты',
-                thirdButtonText: 'Транспорт',
-                fourthButtonText: 'Скины',
-                fifthButtonText: 'Музыка',
-                bottomPadding: sdp_fromPX(context, 50),
-                contentPadding: sdp_fromPX(context, 164),
-                activeGradient: bluePurpleGradient,
-                inactiveGradient: whiteGradient,
-                state: category,
-                onPressed: set_category,
-                firstButtonValue: 0,
-                secondButtonValue: 1,
-                thirdButtonValue: 2,
-                fourthButtonValue: 3,
-                fifthButtonValue: 4,
-              ),
-            )
-          : Container(
-              height: sdp_fromPX(context, 0),
-            ),
       body: Container(
         height: double.infinity,
-        width: double.infinity,
+        // width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+            begin: Alignment.bottomLeft,
+            end: Alignment.bottomRight,
             colors: [
-              Color.fromRGBO(18, 0, 27, 1),
-              Color.fromRGBO(112, 0, 255, 1),
+              Color.fromARGB(255, 10, 0, 15),
+              Color.fromARGB(255, 70, 24, 126),
             ],
+            stops: [0.5, 1],
           ),
         ),
         child: SingleChildScrollView(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 50))),
+            Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
             Padding(
-              padding: EdgeInsets.only(left: sdp_fromPX(context, 80)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (type == 4 || type == 5)
-                    Padding(
-                      padding: EdgeInsets.only(right: sdp_fromPX(context, 480)),
-                      child: BackArrowButton(
-                        onTap: () {
-                          setState(() {
-                            if (trclassText != null) {
-                              if (viewCar) viewCar = false;
-                              currentCategoryData = categoryData[2]!;
-                              trclassText = null;
-                              activeTransportClass = false;
-                            }
-                            if (type == 4 || type == 5 || type == 2) {
-                              type = 0;
-                              category = 0;
-                              categoryText = 'Акции и специальные предложения';
-                              set_category(0);
-                            }
-                          });
-                        },
-                      ),
+              padding: EdgeInsets.only(left: sdp_fromPX(context, 100), right: sdp_fromPX(context, 100)),
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        if (type == 4 || type == 5)
+                          Padding(
+                            padding: EdgeInsets.only(right: sdp_fromPX(context, 480)),
+                            child: BackArrowButton(
+                              onTap: () {
+                                setState(() {
+                                  if (trclassText != null) {
+                                    if (viewCar) viewCar = false;
+                                    currentCategoryData = categoryData[2]!;
+                                    trclassText = null;
+                                    activeTransportClass = false;
+                                  }
+                                  if (type == 4 || type == 5 || type == 2) {
+                                    type = 0;
+                                    category = 0;
+                                    categoryText = 'Акции и специальные предложения';
+                                    set_category(0);
+                                  }
+                                });
+                              },
+                            ),
+                          ),
+                        if (type != 4 && type != 5)
+                          FiveButtonBar(
+                            activeGradient: bluePurpleGradient,
+                            inactiveGradient: whiteGradient,
+                            firstButtonText: 'Товары',
+                            secondButtonText: 'Услуги',
+                            thirdButtonText: 'Рулетки',
+                            fourthButtonText: 'Матрешка+',
+                            contentPadding: sdp_fromPX(context, 54),
+                            state: type,
+                            onPressed: set_type,
+                            width: 740,
+                            firstButtonValue: 0,
+                            secondButtonValue: 1,
+                            thirdButtonValue: 2,
+                            fourthButtonValue: 3,
+                          ),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 40))),
+                      ],
                     ),
-                  if (type != 4 && type != 5)
-                    FiveButtonBar(
-                      activeGradient: bluePurpleGradient,
-                      inactiveGradient: whiteGradient,
-                      firstButtonText: 'Товары',
-                      secondButtonText: 'Услуги',
-                      thirdButtonText: 'Рулетки',
-                      fourthButtonText: 'Матрешка+',
-                      contentPadding: sdp_fromPX(context, 54),
-                      state: type,
-                      onPressed: set_type,
-                      width: 740,
-                      firstButtonValue: 0,
-                      secondButtonValue: 1,
-                      thirdButtonValue: 2,
-                      fourthButtonValue: 3,
-                    ),
-                  Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 64))),
-                  if (type != 4 && type != 5)
-                    ButtonAnimator(
-                      onTap: () {
-                        specialOffers(context);
-                      },
-                      childWidget: Container(
-                        height: sdp_fromPX(context, 90),
-                        width: sdp_fromPX(context, 76),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              height: sdp_fromPX(context, 73),
-                              width: sdp_fromPX(context, 73),
-                              padding: EdgeInsets.only(
-                                top: sdp_fromPX(context, 10),
-                                left: sdp_fromPX(context, 10),
-                                right: sdp_fromPX(context, 7),
-                                bottom: sdp_fromPX(context, 10),
-                              ),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [Color.fromRGBO(128, 255, 125, 1), Color.fromRGBO(66, 131, 64, 1)],
+                    Row(
+                      children: [
+                        if (type != 4 && type != 5)
+                          ButtonAnimator(
+                            onTap: () {
+                              specialOffers(context);
+                            },
+                            childWidget: Container(
+                              height: sdp_fromPX(context, 90),
+                              width: sdp_fromPX(context, 83),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    height: sdp_fromPX(context, 73),
+                                    width: sdp_fromPX(context, 73),
+                                    padding: EdgeInsets.only(
+                                      top: sdp_fromPX(context, 10),
+                                      left: sdp_fromPX(context, 10),
+                                      right: sdp_fromPX(context, 7),
+                                      bottom: sdp_fromPX(context, 10),
+                                    ),
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment.bottomLeft,
+                                          end: Alignment.topRight,
+                                          colors: [Color(0xFF80FF7D), Color(0XFF428340)],
+                                        ),
+                                        borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
+                                    child: SvgPicture.asset(
+                                      'assets/icons/discount.svg',
+                                      height: sdp_fromPX(context, 42),
+                                      width: sdp_fromPX(context, 42),
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
-                              child: SvgPicture.asset(
-                                'assets/icons/discount.svg',
-                                height: sdp_fromPX(context, 52),
-                                width: sdp_fromPX(context, 52),
+                                  Positioned(
+                                    top: 0,
+                                    left: sdp_fromPX(context, 45),
+                                    child: Container(
+                                      height: sdp_fromPX(context, 26),
+                                      width: sdp_fromPX(context, 38),
+                                      decoration: BoxDecoration(
+                                          color: Color.fromRGBO(255, 24, 24, 1), borderRadius: BorderRadius.circular(sdp_fromPX(context, 50000))),
+                                      child: Text(
+                                        '12',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: sdp_fromPX(context, 20),
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                            Positioned(
-                              top: 0,
-                              left: sdp_fromPX(context, 38),
-                              child: Container(
-                                height: sdp_fromPX(context, 26),
-                                width: sdp_fromPX(context, 38),
-                                decoration: BoxDecoration(
-                                    color: Color.fromRGBO(255, 24, 24, 1), borderRadius: BorderRadius.circular(sdp_fromPX(context, 50000))),
+                          ),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                        Container(
+                          height: sdp_fromPX(context, 73),
+                          decoration:
+                              BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                              SvgPicture.asset(
+                                'assets/icons/ruble.svg',
+                                height: sdp_fromPX(context, 42),
+                                width: sdp_fromPX(context, 42),
+                              ),
+                              Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                              FittedBox(
+                                fit: BoxFit.contain,
                                 child: Text(
-                                  '12',
-                                  textAlign: TextAlign.center,
+                                  '12 000 126',
                                   style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: sdp_fromPX(context, 20),
-                                    fontFamily: 'Roboto',
+                                    fontSize: sdp_fromPX(context, 32),
                                     fontWeight: FontWeight.w500,
+                                    fontFamily: 'Roboto',
+                                    color: Color.fromRGBO(255, 255, 255, 1),
                                   ),
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
-                  Container(
-                    height: sdp_fromPX(context, 73),
-                    decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        SvgPicture.asset(
-                          'assets/icons/ruble.svg',
-                          height: sdp_fromPX(context, 42),
-                          width: sdp_fromPX(context, 42),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 5))),
-                        FittedBox(
-                          fit: BoxFit.contain,
-                          child: Text(
-                            '12 000 126',
-                            style: TextStyle(fontSize: sdp_fromPX(context, 32), fontWeight: FontWeight.w500, color: Color.fromRGBO(255, 255, 255, 1)),
+                              Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                              ButtonAnimator(
+                                onTap: () {
+                                  setState(() {
+                                    type = 4;
+                                    categoryText = 'Положить деньги на счет';
+                                  });
+                                },
+                                childWidget: Container(
+                                    height: sdp_fromPX(context, 73),
+                                    width: sdp_fromPX(context, 73),
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment.bottomLeft,
+                                          end: Alignment.topRight,
+                                          colors: [Color(0xFF80FF7D), Color(0XFF428340)],
+                                        ),
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(sdp_fromPX(context, 15)),
+                                            bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
+                                    child: SvgPicture.asset('assets/icons/bi_plus.svg')),
+                              ),
+                            ],
                           ),
                         ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        ButtonAnimator(
-                          onTap: () {
-                            setState(() {
-                              type = 4;
-                              categoryText = 'Положить деньги на счет';
-                            });
-                          },
-                          childWidget: Container(
-                              height: sdp_fromPX(context, 73),
-                              width: sdp_fromPX(context, 52),
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(128, 255, 125, 1),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(sdp_fromPX(context, 15)), bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
-                              child: SvgPicture.asset('assets/icons/bi_plus.svg')),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
-                  Container(
-                    height: sdp_fromPX(context, 73),
-                    decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
-                    child: Row(
-                      children: [
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        SvgPicture.asset(
-                          'assets/icons/coin.svg',
-                          height: sdp_fromPX(context, 42),
-                          width: sdp_fromPX(context, 42),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        Text(
-                          '120',
-                          style: TextStyle(fontSize: sdp_fromPX(context, 32), fontWeight: FontWeight.w500, color: Color.fromRGBO(255, 255, 255, 1)),
-                        ),
-                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                        ButtonAnimator(
-                          onTap: () {
-                            setState(() {
-                              type = 5;
-                              categoryText = 'Пополнение вирутального счета';
-                            });
-                          },
-                          childWidget: Container(
-                              height: sdp_fromPX(context, 73),
-                              width: sdp_fromPX(context, 52),
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(128, 255, 125, 1),
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(sdp_fromPX(context, 15)), bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
-                              child: SvgPicture.asset('assets/icons/bi_plus.svg')),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 60))),
-                  ButtonAnimator(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    childWidget: Container(
-                      padding: EdgeInsets.only(
-                        top: sdp_fromPX(context, 10),
-                        left: sdp_fromPX(context, 10),
-                        right: sdp_fromPX(context, 7),
-                        bottom: sdp_fromPX(context, 10),
-                      ),
-                      height: sdp_fromPX(context, 73),
-                      width: sdp_fromPX(context, 73),
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [Color.fromRGBO(255, 125, 125, 1), Color.fromRGBO(131, 64, 64, 1)],
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                        Container(
+                          height: sdp_fromPX(context, 73),
+                          decoration:
+                              BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
+                          child: Row(
+                            children: [
+                              Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 25))),
+                              SvgPicture.asset(
+                                'assets/icons/coin.svg',
+                                height: sdp_fromPX(context, 42),
+                                width: sdp_fromPX(context, 42),
+                              ),
+                              Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                              FittedBox(
+                                fit: BoxFit.contain,
+                                child: Text(
+                                  '120',
+                                  style: TextStyle(
+                                    fontSize: sdp_fromPX(context, 32),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Roboto',
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                  ),
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 52))),
+                              ButtonAnimator(
+                                onTap: () {
+                                  setState(() {
+                                    type = 5;
+                                    categoryText = 'Пополнение вирутального счета';
+                                  });
+                                },
+                                childWidget: Container(
+                                    height: sdp_fromPX(context, 73),
+                                    width: sdp_fromPX(context, 73),
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment.bottomLeft,
+                                          end: Alignment.topRight,
+                                          colors: [Color(0xFF80FF7D), Color(0XFF428340)],
+                                        ),
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(sdp_fromPX(context, 15)),
+                                            bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
+                                    child: SvgPicture.asset('assets/icons/bi_plus.svg')),
+                              ),
+                            ],
                           ),
-                          borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
-                      child: SvgPicture.asset(
-                        'assets/icons/exit_outline.svg',
-                        height: sdp_fromPX(context, 52),
-                        width: sdp_fromPX(context, 52),
-                      ),
-                    ),
-                  ),
-                ],
+                        ),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 60))),
+                        ButtonAnimator(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          childWidget: Container(
+                            padding: EdgeInsets.only(
+                              top: sdp_fromPX(context, 10),
+                              left: sdp_fromPX(context, 10),
+                              right: sdp_fromPX(context, 7),
+                              bottom: sdp_fromPX(context, 10),
+                            ),
+                            height: sdp_fromPX(context, 73),
+                            width: sdp_fromPX(context, 73),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.bottomLeft,
+                                  end: Alignment.topRight,
+                                  colors: [Color(0xFFFF7D7D), Color(0xFF834040)],
+                                ),
+                                borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
+                            child: SvgPicture.asset(
+                              'assets/icons/exit_outline.svg',
+                              height: sdp_fromPX(context, 52),
+                              width: sdp_fromPX(context, 52),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 41))),
             Center(
-              child: Container(
-                height: sdp_fromPX(context, 70),
-                width: sdp_fromPX(context, 1600),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    if (trclassText != null)
-                      Padding(
-                        padding: EdgeInsets.only(right: sdp_fromPX(context, trclassText != null ? 250 : 0)),
-                        child: BackArrowButton(
-                          onTap: () {
-                            setState(() {
-                              if (trclassText != null) {
-                                if (viewCar) viewCar = false;
-                                currentCategoryData = categoryData[2]!;
-                                trclassText = null;
-                                activeTransportClass = false;
-                              }
-                              if (type == 4 || type == 5 || type == 2) {
-                                type = 0;
-                                categoryText = 'Акции и специальные предложения';
-                              }
-                            });
-                          },
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Container(
+                  height: sdp_fromPX(context, 70),
+                  width: sdp_fromPX(context, 1600),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (trclassText != null)
+                        Padding(
+                          padding: EdgeInsets.only(right: sdp_fromPX(context, trclassText != null ? 250 : 0)),
+                          child: BackArrowButton(
+                            onTap: () {
+                              setState(() {
+                                if (trclassText != null) {
+                                  if (viewCar) viewCar = false;
+                                  currentCategoryData = categoryData[2]!;
+                                  trclassText = null;
+                                  activeTransportClass = false;
+                                }
+                                if (type == 4 || type == 5 || type == 2) {
+                                  type = 0;
+                                  categoryText = 'Акции и специальные предложения';
+                                }
+                              });
+                            },
+                          ),
                         ),
-                      ),
-                    if (type == 2)
-                      Padding(
-                        padding: EdgeInsets.only(right: sdp_fromPX(context, 600)),
-                      ),
-                    Container(
-                      width: sdp_fromPX(context, 1000),
-                      child: Row(
-                        mainAxisAlignment: trclassText != null ? MainAxisAlignment.start : MainAxisAlignment.center,
-                        children: [
-                          Text(categoryText!,
+                      if (type == 2)
+                        Padding(
+                          padding: EdgeInsets.only(right: sdp_fromPX(context, 600)),
+                        ),
+                      Container(
+                        width: sdp_fromPX(context, 1000),
+                        child: Row(
+                          mainAxisAlignment: trclassText != null ? MainAxisAlignment.start : MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              categoryText!,
                               style: TextStyle(
-                                  fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500, foreground: Paint()..shader = whiteGradient)),
-                          Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                          if (trclassText != null)
-                            ShaderMask(
-                              blendMode: BlendMode.srcATop,
-                              shaderCallback: (bounds) => LinearGradient(
-                                colors: <Color>[
-                                  Color.fromRGBO(0, 133, 255, 1),
-                                  Color.fromRGBO(167, 0, 255, 1),
-                                ],
-                              ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
-                              child: Text(
-                                trclassText!,
-                                style: TextStyle(
-                                    fontSize: sdp_fromPX(context, 43), fontWeight: FontWeight.w500, foreground: Paint()..shader = bluePurpleGradient),
-                              ),
+                                  fontSize: sdp_fromPX(context, 43),
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
+                                  foreground: Paint()..shader = whiteGradient),
                             ),
-                          if (type == 2)
-                            Padding(
-                              padding: EdgeInsets.only(left: sdp_fromPX(context, 350)),
-                              child: ButtonAnimator(
-                                childWidget: Container(
-                                  height: sdp_fromPX(context, 70),
-                                  width: sdp_fromPX(context, 274),
-                                  decoration: ShapeDecoration(
-                                    color: Color(0xFF24004F),
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(width: sdp_fromPX(context, 2), color: Color(0xFF7400FF)),
-                                      borderRadius: BorderRadius.circular(sdp_fromPX(context, 10)),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          height: sdp_fromPX(context, 50),
-                                          width: sdp_fromPX(context, 50),
-                                          child: SvgPicture.asset(
-                                            'assets/icons/history-clock.svg',
-                                          )),
-                                      Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 11))),
-                                      Text(
-                                        'История',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: sdp_fromPX(context, 36),
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                            Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                            if (trclassText != null)
+                              ShaderMask(
+                                blendMode: BlendMode.srcATop,
+                                shaderCallback: (bounds) => LinearGradient(
+                                  colors: <Color>[
+                                    Color.fromRGBO(0, 133, 255, 1),
+                                    Color.fromRGBO(167, 0, 255, 1),
+                                  ],
+                                ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
+                                child: Text(
+                                  trclassText!,
+                                  style: TextStyle(
+                                      fontSize: sdp_fromPX(context, 43),
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Roboto',
+                                      foreground: Paint()..shader = bluePurpleGradient),
                                 ),
                               ),
-                            )
-                        ],
+                            if (type == 2)
+                              Padding(
+                                padding: EdgeInsets.only(left: sdp_fromPX(context, 350)),
+                                child: ButtonAnimator(
+                                  childWidget: Container(
+                                    height: sdp_fromPX(context, 70),
+                                    width: sdp_fromPX(context, 274),
+                                    decoration: ShapeDecoration(
+                                      color: Color(0xFF24004F),
+                                      shape: RoundedRectangleBorder(
+                                        side: BorderSide(width: sdp_fromPX(context, 2), color: Color(0xFF7400FF)),
+                                        borderRadius: BorderRadius.circular(sdp_fromPX(context, 10)),
+                                      ),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                            height: sdp_fromPX(context, 50),
+                                            width: sdp_fromPX(context, 50),
+                                            child: SvgPicture.asset(
+                                              'assets/icons/history-clock.svg',
+                                            )),
+                                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 11))),
+                                        Text(
+                                          'История',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: sdp_fromPX(context, 36),
+                                            fontWeight: FontWeight.w400,
+                                            fontFamily: 'Roboto',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -645,15 +659,15 @@ class _ScreenState extends State<Screen> {
                       alignment: Alignment.center,
                       height: sdp_fromPX(context, type == 0 ? 570 : 740),
                       child: type == 1
-                          ? ServicesScreen()
+                          ? FittedBox(fit: BoxFit.contain, child: ServicesScreen())
                           : type == 2
                               ? RouletteScreen()
                               : type == 3
-                                  ? MatryoshkaScreen()
+                                  ? FittedBox(fit: BoxFit.contain, child: MatryoshkaScreen())
                                   : type == 4
-                                      ? DonatPayScreen()
+                                      ? FittedBox(fit: BoxFit.contain, child: DonatPayScreen())
                                       : type == 5
-                                          ? CoinPayScreen()
+                                          ? FittedBox(fit: BoxFit.contain, child: CoinPayScreen())
                                           : ListView.builder(
                                               shrinkWrap: true,
                                               scrollDirection: Axis.horizontal,
@@ -766,7 +780,35 @@ class _ScreenState extends State<Screen> {
                   ),
                 ],
               ),
-            )
+            ),
+            if (type == 0)
+              Padding(
+                padding: EdgeInsets.only(top: sdp_fromPX(context, 60), left: sdp_fromPX(context, 100), right: sdp_fromPX(context, 100)),
+                child: Center(
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: FiveButtonBar(
+                      firstButtonText: 'Акции',
+                      secondButtonText: 'Игровые пакеты',
+                      thirdButtonText: 'Транспорт',
+                      fourthButtonText: 'Скины',
+                      fifthButtonText: 'Музыка',
+                      height: 73,
+                      width: 1550,
+                      contentPadding: sdp_fromPX(context, 164),
+                      activeGradient: bluePurpleGradient,
+                      inactiveGradient: whiteGradient,
+                      state: category,
+                      onPressed: set_category,
+                      firstButtonValue: 0,
+                      secondButtonValue: 1,
+                      thirdButtonValue: 2,
+                      fourthButtonValue: 3,
+                      fifthButtonValue: 4,
+                    ),
+                  ),
+                ),
+              )
           ]),
         ),
       ),

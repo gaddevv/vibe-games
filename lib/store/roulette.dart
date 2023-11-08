@@ -375,6 +375,7 @@ class _RouletteScreenState extends State<RouletteScreen> {
                         color: Color.fromRGBO(255, 255, 255, 1),
                         fontSize: sdp_fromPX(context, 24),
                         fontWeight: FontWeight.w500,
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ],

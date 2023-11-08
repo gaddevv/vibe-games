@@ -13,3 +13,12 @@ final Shader whiteGradient = LinearGradient(
     Color.fromRGBO(255, 255, 255, 1),
   ],
 ).createShader(Rect.fromLTWH(0.0, 0.0, 30.0, 30.0));
+
+final Shader blackPurpleGradient = LinearGradient(
+  begin: Alignment.bottomLeft,
+  end: Alignment.topRight,
+  colors: <Color>[
+    Color.fromARGB(255, 10, 0, 15),
+    Color.fromARGB(255, 70, 24, 126),
+  ],
+).createShader(Rect.fromLTWH(0.0, 0.0, 30.0, 30.0));

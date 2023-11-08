@@ -45,6 +45,7 @@ class _WinnerAlertState extends State<WinnerAlert> {
                   color: Colors.white,
                   fontSize: sdp_fromPX(context, 43),
                   fontWeight: FontWeight.w500,
+                  fontFamily: 'Roboto',
                 ),
               ),
               Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 60))),
@@ -100,7 +101,12 @@ class _WinnerAlertState extends State<WinnerAlert> {
                   borderRadius: BorderRadius.circular(sdp_fromPX(context, 50000))),
               child: Center(
                 child: Text('Получить',
-                    style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 33), fontWeight: FontWeight.w400)),
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontSize: sdp_fromPX(context, 33),
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Roboto',
+                    )),
               ),
             ),
           ),

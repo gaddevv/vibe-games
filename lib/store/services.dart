@@ -15,10 +15,10 @@ class ServicesScreen extends StatefulWidget {
 
 class _ServicesScreenState extends State<ServicesScreen> {
   List<Map<String, dynamic>> servicesData = [
-    {'description': 'Приобрести опыт (exp)', 'price': '30 РУБ'},
-    {'description': 'Приобрести домашнего питомца', 'price': '300 РУБ'},
-    {'description': 'Скины на оружие', 'price': '500 РУБ'},
-    {'description': 'Стробоскопы на автомобиль', 'price': '400 РУБ'},
+    {'description': 'ПРИОБРЕСТИ ОПЫТ (exp)', 'price': '30 РУБ'},
+    {'description': 'ПРИОБРЕСТИ ДОМАШНЕГО ПИТОМЦА', 'price': '300 РУБ'},
+    {'description': 'СКИНЫ НА ОРУЖИЕ', 'price': '500 РУБ'},
+    {'description': 'СТРОБОСКОПЫ НА АВТОМОБИЛЬ', 'price': '400 РУБ'},
     {'description': 'Стробоскопы полицейские', 'price': '2000 РУБ'},
     {'description': 'Изменить имя', 'price': '99 РУБ'},
     {'description': 'Снять предупреждения', 'price': '500 РУБ'},
@@ -48,46 +48,63 @@ class _ServicesScreenState extends State<ServicesScreen> {
           children: [
             Stack(
               children: [
-                StoreCard(
-                  image: 'assets/images/sales/box.png',
-                  title: 'Акция дня',
-                  subtitle: 'OG Buda',
-                  subText: '1200',
-                  subtextTwo: '3000',
-                  buttonExist: false,
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: StoreCard(
+                      image: 'assets/images/sales/box.png',
+                      title: 'Акция дня',
+                      subtitle: 'OG Buda',
+                      subText: '1200',
+                      subtextTwo: '3000',
+                      secondSaleText: '31:52',
+                      buttonExist: false,
+                      imageHeight: sdp_fromPX(context, 150),
+                      imageWidth: sdp_fromPX(context, 133),
+                      color: Color(0xFF60106D),
+                      gradient: RadialGradient(
+                        radius: sdp_fromPX(context, 1.6),
+                        colors: [Color.fromARGB(255, 196, 72, 215), Color.fromARGB(255, 113, 1, 130)],
+                      )),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: sdp_fromPX(context, 17)),
-                  child: Container(
-                    height: sdp_fromPX(context, 70),
-                    width: sdp_fromPX(context, 322),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(sdp_fromPX(context, 15)),
-                            topRight: Radius.circular(
-                              sdp_fromPX(context, 15),
-                            )),
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: <Color>[Color.fromRGBO(192, 61, 255, 1), Color.fromRGBO(178, 1, 241, 1)],
-                        )),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      SvgPicture.asset(
-                        'assets/icons/coin.svg',
-                        height: sdp_fromPX(context, 40),
-                        width: sdp_fromPX(context, 40),
-                      ),
-                      Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                      Text(
-                        '250 на 30 дней',
-                        style: TextStyle(
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          fontSize: sdp_fromPX(context, 28),
-                          fontWeight: FontWeight.w600,
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: sdp_fromPX(context, 17)),
+                    child: Container(
+                      height: sdp_fromPX(context, 70),
+                      width: sdp_fromPX(context, 322),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(sdp_fromPX(context, 15)),
+                              topRight: Radius.circular(
+                                sdp_fromPX(context, 15),
+                              )),
+                          gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: <Color>[Color.fromRGBO(192, 61, 255, 1), Color.fromRGBO(178, 1, 241, 1)],
+                          )),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        SvgPicture.asset(
+                          'assets/icons/coin.svg',
+                          height: sdp_fromPX(context, 40),
+                          width: sdp_fromPX(context, 40),
                         ),
-                      ),
-                    ]),
+                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                        FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            '250 на 30 дней',
+                            style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontSize: sdp_fromPX(context, 28),
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Roboto',
+                            ),
+                          ),
+                        ),
+                      ]),
+                    ),
                   ),
                 )
               ],
@@ -100,11 +117,11 @@ class _ServicesScreenState extends State<ServicesScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
                     gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
                       colors: <Color>[
-                        Color.fromRGBO(54, 119, 80, 1),
-                        Color.fromRGBO(56, 205, 116, 1),
+                        Color(0xFF80FF7D),
+                        Color(0xFF428340),
                       ],
                     )),
                 child: Center(
@@ -118,11 +135,12 @@ class _ServicesScreenState extends State<ServicesScreen> {
                     ),
                     Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
                     Text(
-                      '250 на 30 дней',
+                      '250',
                       style: TextStyle(
                         color: Color.fromRGBO(255, 255, 255, 1),
                         fontSize: sdp_fromPX(context, 30),
                         fontWeight: FontWeight.w500,
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ],
@@ -138,9 +156,9 @@ class _ServicesScreenState extends State<ServicesScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
                     gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: <Color>[Color.fromRGBO(255, 82, 82, 1), Color.fromRGBO(144, 45, 45, 1)],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: <Color>[Color(0xFFFF5252), Color(0xFF902D2D)],
                     )),
                 child: Center(
                     child: Row(
@@ -158,6 +176,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                         color: Color.fromRGBO(255, 255, 255, 1),
                         fontSize: sdp_fromPX(context, 30),
                         fontWeight: FontWeight.w500,
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ],
@@ -171,13 +190,18 @@ class _ServicesScreenState extends State<ServicesScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: sdp_fromPX(context, 20), top: sdp_fromPX(context, 20)),
+              padding: EdgeInsets.only(left: sdp_fromPX(context, 20), top: sdp_fromPX(context, 5)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     'Доступные услуги',
-                    style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 34), fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontSize: sdp_fromPX(context, 34),
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Roboto',
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
@@ -194,7 +218,6 @@ class _ServicesScreenState extends State<ServicesScreen> {
                             fontSize: sdp_fromPX(context, 34),
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w300,
-                            height: 0,
                           ),
                         ),
                         TextSpan(
@@ -203,8 +226,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                             color: Color(0xFF69D666),
                             fontSize: sdp_fromPX(context, 34),
                             fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],
@@ -218,7 +240,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
               data: servicesData,
               secondText: true,
               widthFirstCell: sdp_fromPX(context, 750),
-              height: sdp_fromPX(context, 650),
+              height: sdp_fromPX(context, 666),
               width: sdp_fromPX(context, 1120),
             ),
           ],

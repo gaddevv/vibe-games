@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vibes_studio/elements/buttons/button-animator.dart';
 import 'package:vibes_studio/elements/sdp.dart';
 
-
 class StoreCard extends StatefulWidget {
   final String image;
   final String? icon;
@@ -12,7 +11,11 @@ class StoreCard extends StatefulWidget {
   final String? subText;
   final String? subtextTwo;
   final String? saleText;
+  final String? secondSaleText;
+
   final String? buttonText;
+  final double? imageHeight;
+  final double? imageWidth;
 
   final bool? buttonExist;
 
@@ -35,6 +38,9 @@ class StoreCard extends StatefulWidget {
     this.saleText,
     this.buttonText,
     this.buttonExist = true,
+    this.imageHeight,
+    this.imageWidth,
+    this.secondSaleText,
   });
 
   @override
@@ -57,16 +63,12 @@ class _StoreCardState extends State<StoreCard> {
               height: sdp_fromPX(context, 445),
               width: sdp_fromPX(context, 322),
               decoration: BoxDecoration(
-                color: widget.color ?? Color.fromRGBO(78, 39, 125, 1),
+                color: widget.color ?? Color(0xFF4E277D),
                 borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
                 gradient: widget.gradient == null
                     ? RadialGradient(
-                        stops: [0.01, 0.4, 1],
-                        colors: [
-                          Color.fromRGBO(115, 0, 255, 0.6),
-                          Color.fromRGBO(116, 0, 255, 1),
-                          Color.fromRGBO(115, 0, 255, 0.6),
-                        ],
+                        radius: sdp_fromPX(context, 1.65),
+                        colors: [Color.fromARGB(255, 140, 0, 255), Color.fromARGB(255, 72, 26, 109)],
                       )
                     : widget.gradient,
               ),
@@ -74,13 +76,17 @@ class _StoreCardState extends State<StoreCard> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 30))),
-                  Text(
-                    widget.title,
-                    maxLines: 1,
-                    style: TextStyle(
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      fontSize: sdp_fromPX(context, 24),
-                      fontWeight: FontWeight.w500,
+                  FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      widget.title,
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        fontSize: sdp_fromPX(context, 24),
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Roboto',
+                      ),
                     ),
                   ),
                   Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 5))),
@@ -91,10 +97,69 @@ class _StoreCardState extends State<StoreCard> {
                       color: Color.fromRGBO(255, 255, 255, 1),
                       fontSize: sdp_fromPX(context, 17),
                       fontWeight: FontWeight.w400,
+                      fontFamily: 'Roboto',
                     ),
                   ),
                   Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                  Center(child: Container(height: sdp_fromPX(context, 250), width: sdp_fromPX(context, 250), child: Image.asset(widget.image))),
+                  if (widget.secondSaleText != null)
+                    FittedBox(
+                      fit: BoxFit.contain,
+                      child: Container(
+                        height: sdp_fromPX(context, 33),
+                        width: sdp_fromPX(context, 178),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFDE6B6C),
+                            borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight,
+                              colors: <Color>[
+                                Color(0xFFDE6B6C),
+                                Color(0xFFAE5B5B),
+                              ],
+                            )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 14))),
+                            Text(
+                              'Акция',
+                              style: TextStyle(
+                                  fontSize: sdp_fromPX(context, 17),
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Roboto',
+                                  color: Color.fromRGBO(255, 255, 255, 1)),
+                            ),
+                            Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 14))),
+                            Container(
+                              alignment: Alignment.center,
+                              height: sdp_fromPX(context, 33),
+                              width: sdp_fromPX(context, 96),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(sdp_fromPX(context, 15)), bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
+                              child: Text(
+                                widget.secondSaleText!,
+                                style: TextStyle(
+                                  fontSize: sdp_fromPX(context, 17),
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
+                                  color: Color(0xFFDE6B6C),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  if (widget.secondSaleText != null) Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 30))),
+                  Center(
+                      child: Container(
+                          height: widget.imageHeight ?? sdp_fromPX(context, 250),
+                          width: widget.imageWidth ?? sdp_fromPX(context, 250),
+                          child: Image.asset(widget.image))),
+                  if (widget.secondSaleText != null) Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
                   if (widget.subText != null && widget.subtextTwo != null)
                     Container(
                       width: sdp_fromPX(context, 300),
@@ -107,6 +172,7 @@ class _StoreCardState extends State<StoreCard> {
                               color: Color.fromRGBO(255, 255, 255, 1),
                               fontSize: sdp_fromPX(context, 24),
                               fontWeight: FontWeight.w500,
+                              fontFamily: 'Roboto',
                             ),
                           ),
                           Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 100))),
@@ -117,6 +183,7 @@ class _StoreCardState extends State<StoreCard> {
                                   color: Color.fromRGBO(165, 122, 216, 1),
                                   fontSize: sdp_fromPX(context, 24),
                                   fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
                                   decoration: TextDecoration.lineThrough,
                                   decorationColor: Colors.grey),
                             ),
@@ -131,6 +198,7 @@ class _StoreCardState extends State<StoreCard> {
                           color: Color.fromRGBO(255, 255, 255, 1),
                           fontSize: sdp_fromPX(context, 24),
                           fontWeight: FontWeight.w500,
+                          fontFamily: 'Roboto',
                         ),
                       ),
                     ),
@@ -150,11 +218,11 @@ class _StoreCardState extends State<StoreCard> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
                           gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topRight,
                             colors: <Color>[
-                              Color.fromRGBO(54, 119, 80, 1),
-                              Color.fromRGBO(56, 205, 116, 1),
+                              Color(0xFF38CD74),
+                              Color(0xFF367750),
                             ],
                           )),
                       child: Center(
@@ -174,6 +242,7 @@ class _StoreCardState extends State<StoreCard> {
                                       color: Color.fromRGBO(255, 255, 255, 1),
                                       fontSize: sdp_fromPX(context, 24),
                                       fontWeight: FontWeight.w500,
+                                      fontFamily: 'Roboto',
                                     ),
                                   ),
                                 ],
@@ -184,6 +253,7 @@ class _StoreCardState extends State<StoreCard> {
                                   color: Color.fromRGBO(255, 255, 255, 1),
                                   fontSize: sdp_fromPX(context, 24),
                                   fontWeight: FontWeight.w500,
+                                  fontFamily: 'Roboto',
                                 ),
                               ),
                       ),
@@ -213,7 +283,11 @@ class _StoreCardState extends State<StoreCard> {
                     Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 14))),
                     Text(
                       'Акции',
-                      style: TextStyle(fontSize: sdp_fromPX(context, 17), fontWeight: FontWeight.w400, color: Color.fromRGBO(255, 255, 255, 1)),
+                      style: TextStyle(
+                          fontSize: sdp_fromPX(context, 17),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Roboto',
+                          color: Color.fromRGBO(255, 255, 255, 1)),
                     ),
                     Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 14))),
                     Container(
@@ -226,7 +300,11 @@ class _StoreCardState extends State<StoreCard> {
                               topRight: Radius.circular(sdp_fromPX(context, 15)), bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
                       child: Text(
                         widget.saleText!,
-                        style: TextStyle(fontSize: sdp_fromPX(context, 17), fontWeight: FontWeight.w400, color: Color.fromRGBO(143, 0, 255, 1)),
+                        style: TextStyle(
+                            fontSize: sdp_fromPX(context, 17),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Roboto',
+                            color: Color.fromRGBO(143, 0, 255, 1)),
                       ),
                     ),
                   ],

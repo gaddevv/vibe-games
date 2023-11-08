@@ -91,7 +91,12 @@ class _ConfirmationAlertState extends State<ConfirmationAlert> {
                           padding: widget.cancelButton == false ? EdgeInsets.only(top: sdp_fromPX(context, 40)) : EdgeInsets.all(0),
                           child: Text(
                             widget.title,
-                            style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 48), fontWeight: FontWeight.w500),
+                            style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1),
+                              fontSize: sdp_fromPX(context, 48),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Roboto',
+                            ),
                           ),
                         ),
                       ),
@@ -119,24 +124,40 @@ class _ConfirmationAlertState extends State<ConfirmationAlert> {
                                   text: TextSpan(
                                     text: widget.text,
                                     style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 33), fontWeight: FontWeight.w400),
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      fontSize: sdp_fromPX(context, 33),
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: 'Roboto',
+                                    ),
                                     children: <TextSpan>[
                                       widget.richText != null
                                           ? TextSpan(
                                               text: widget.richText,
-                                              style: TextStyle(color: Color.fromRGBO(194, 143, 252, 1), fontWeight: FontWeight.w400),
+                                              style: TextStyle(
+                                                color: Color.fromRGBO(194, 143, 252, 1),
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily: 'Roboto',
+                                              ),
                                             )
                                           : TextSpan(),
                                       widget.secondText != null
                                           ? TextSpan(
                                               text: widget.secondText,
-                                              style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontWeight: FontWeight.w400),
+                                              style: TextStyle(
+                                                color: Color.fromRGBO(255, 255, 255, 1),
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily: 'Roboto',
+                                              ),
                                             )
                                           : TextSpan(),
                                       widget.secondRichText != null
                                           ? TextSpan(
                                               text: widget.secondRichText,
-                                              style: TextStyle(color: Color.fromRGBO(194, 143, 252, 1), fontWeight: FontWeight.w400),
+                                              style: TextStyle(
+                                                color: Color.fromRGBO(194, 143, 252, 1),
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily: 'Roboto',
+                                              ),
                                             )
                                           : TextSpan(),
                                     ],
@@ -164,9 +185,11 @@ class _ConfirmationAlertState extends State<ConfirmationAlert> {
                                             child: Center(
                                               child: Text(widget.acceptButtonText ?? 'Купить',
                                                   style: TextStyle(
-                                                      color: Color.fromRGBO(255, 255, 255, 1),
-                                                      fontSize: sdp_fromPX(context, 33),
-                                                      fontWeight: FontWeight.w400)),
+                                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                                    fontSize: sdp_fromPX(context, 33),
+                                                    fontWeight: FontWeight.w400,
+                                                    fontFamily: 'Roboto',
+                                                  )),
                                             ),
                                           ),
                                         ),
@@ -186,9 +209,11 @@ class _ConfirmationAlertState extends State<ConfirmationAlert> {
                                             child: Center(
                                                 child: Text(widget.cancelButtonText ?? 'Отмена',
                                                     style: TextStyle(
-                                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                                        fontSize: sdp_fromPX(context, 33),
-                                                        fontWeight: FontWeight.w400))),
+                                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                                      fontSize: sdp_fromPX(context, 33),
+                                                      fontWeight: FontWeight.w400,
+                                                      fontFamily: 'Roboto',
+                                                    ))),
                                           ),
                                         ),
                                       ],
@@ -211,9 +236,11 @@ class _ConfirmationAlertState extends State<ConfirmationAlert> {
                                         child: Center(
                                             child: Text(widget.acceptButtonText!,
                                                 style: TextStyle(
-                                                    color: Color.fromRGBO(255, 255, 255, 1),
-                                                    fontSize: sdp_fromPX(context, 33),
-                                                    fontWeight: FontWeight.w400))),
+                                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                                  fontSize: sdp_fromPX(context, 33),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontFamily: 'Roboto',
+                                                ))),
                                       ),
                                     ),
                             ),

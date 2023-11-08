@@ -16,8 +16,8 @@ class _DonatPayScreenState extends State<DonatPayScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: sdp_fromPX(context, 40)),
+    return Container(
+      padding: EdgeInsets.only(top: sdp_fromPX(context, 40), left: sdp_fromPX(context, 100), right: sdp_fromPX(context, 100)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,8 +175,12 @@ class _DonatPayScreenState extends State<DonatPayScreen> {
                             borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
                         child: Center(
                           child: Text('Оплатить',
-                              style:
-                                  TextStyle(color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 33), fontWeight: FontWeight.w400)),
+                              style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontSize: sdp_fromPX(context, 33),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'Roboto',
+                              )),
                         ),
                       ),
                     ),
@@ -195,7 +199,11 @@ class _DonatPayScreenState extends State<DonatPayScreen> {
                         child: Center(
                             child: Text('Отмена',
                                 style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 33), fontWeight: FontWeight.w400))),
+                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                  fontSize: sdp_fromPX(context, 33),
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Roboto',
+                                ))),
                       ),
                     ),
                   ],

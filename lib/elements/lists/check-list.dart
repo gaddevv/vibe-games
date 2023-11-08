@@ -32,7 +32,7 @@ class _CheckListState extends State<CheckList> {
     return Container(
       height: widget.height,
       width: widget.width,
-      color: Color.fromRGBO(41, 29, 55, 1),
+      decoration: BoxDecoration(color: Color(0xFF291D37), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
       child: Padding(
         padding: EdgeInsets.only(
           right: sdp_fromPX(context, 40),
@@ -47,6 +47,7 @@ class _CheckListState extends State<CheckList> {
           trackRadius: Radius.circular(sdp(context, 5)),
           trackColor: Color(0xFF18121F),
           thumbColor: Color(0xFF7400FF),
+          padding: EdgeInsets.only(top: sdp_fromPX(context, 18), bottom: sdp_fromPX(context, 18)),
           child: ScrollConfiguration(
             behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
             child: ListView.builder(
@@ -70,15 +71,19 @@ class _CheckListState extends State<CheckList> {
                             height: sdp_fromPX(context, 50),
                             width: widget.widthFirstCell ?? sdp_fromPX(context, 849),
                             decoration: BoxDecoration(
-                              color: isSelected ? Color.fromRGBO(116, 0, 255, 1) : Color.fromRGBO(77, 61, 95, 1),
+                              color: isSelected ? Color.fromARGB(255, 102, 30, 191) : Color.fromRGBO(77, 61, 95, 1),
                               borderRadius: BorderRadius.circular(sdp_fromPX(context, 7)),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(left: sdp_fromPX(context, 24), top: sdp_fromPX(context, 5)),
+                              padding: EdgeInsets.only(left: sdp_fromPX(context, 24), top: sdp_fromPX(context, 8)),
                               child: Text(
                                 widget.data[index]['description'],
                                 style: TextStyle(
-                                    color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 26), fontWeight: FontWeight.w400),
+                                  color: Color.fromRGBO(255, 255, 255, 1),
+                                  fontSize: sdp_fromPX(context, 26),
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Roboto',
+                                ),
                               ),
                             ),
                           ),
@@ -90,7 +95,7 @@ class _CheckListState extends State<CheckList> {
                               height: sdp_fromPX(context, 50),
                               width: sdp_fromPX(context, 212),
                               decoration: BoxDecoration(
-                                color: isSelected ? Color.fromRGBO(116, 0, 255, 1) : Color.fromRGBO(77, 61, 95, 1),
+                                color: isSelected ? Color.fromARGB(255, 102, 30, 191) : Color.fromRGBO(77, 61, 95, 1),
                                 borderRadius: BorderRadius.circular(sdp_fromPX(context, 7)),
                               ),
                               child: Padding(
@@ -99,7 +104,11 @@ class _CheckListState extends State<CheckList> {
                                   child: Text(
                                     widget.data[index]['price'],
                                     style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1), fontSize: sdp_fromPX(context, 26), fontWeight: FontWeight.w400),
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      fontSize: sdp_fromPX(context, 26),
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: 'Roboto',
+                                    ),
                                   ),
                                 ),
                               ),
