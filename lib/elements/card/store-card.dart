@@ -23,6 +23,7 @@ class StoreCard extends StatefulWidget {
 
   final Color? color;
   final Gradient? gradient;
+  final Color? borderColor;
 
   const StoreCard({
     super.key,
@@ -41,6 +42,7 @@ class StoreCard extends StatefulWidget {
     this.imageHeight,
     this.imageWidth,
     this.secondSaleText,
+    this.borderColor,
   });
 
   @override
@@ -65,9 +67,10 @@ class _StoreCardState extends State<StoreCard> {
               decoration: BoxDecoration(
                 color: widget.color ?? Color(0xFF4E277D),
                 borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
+                border: Border.all(color: widget.borderColor ?? Colors.transparent),
                 gradient: widget.gradient == null
                     ? RadialGradient(
-                        radius: sdp_fromPX(context, 1.65),
+                        radius: sdp_fromPX(context, 0.8),
                         colors: [Color.fromARGB(255, 140, 0, 255), Color.fromARGB(255, 72, 26, 109)],
                       )
                     : widget.gradient,
@@ -264,11 +267,11 @@ class _StoreCardState extends State<StoreCard> {
             Padding(
               padding: EdgeInsets.only(left: sdp_fromPX(context, 40)),
               child: Container(
-                height: sdp_fromPX(context, 33),
+                height: sdp_fromPX(context, 40),
                 width: sdp_fromPX(context, 252),
                 decoration: BoxDecoration(
                     color: Color.fromRGBO(143, 0, 255, 1),
-                    borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
+                    borderRadius: BorderRadius.circular(sdp_fromPX(context, 20)),
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
@@ -281,30 +284,36 @@ class _StoreCardState extends State<StoreCard> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 14))),
-                    Text(
-                      'Акции',
-                      style: TextStyle(
-                          fontSize: sdp_fromPX(context, 17),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Roboto',
-                          color: Color.fromRGBO(255, 255, 255, 1)),
+                    Padding(
+                      padding: EdgeInsets.only(top: sdp_fromPX(context, 5)),
+                      child: Text(
+                        'Акции',
+                        style: TextStyle(
+                            fontSize: sdp_fromPX(context, 17),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Roboto',
+                            color: Color.fromRGBO(255, 255, 255, 1)),
+                      ),
                     ),
                     Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 14))),
                     Container(
                       alignment: Alignment.center,
-                      height: sdp_fromPX(context, 33),
+                      height: sdp_fromPX(context, 40),
                       width: sdp_fromPX(context, 167),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(sdp_fromPX(context, 15)), bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
-                      child: Text(
-                        widget.saleText!,
-                        style: TextStyle(
-                            fontSize: sdp_fromPX(context, 17),
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Roboto',
-                            color: Color.fromRGBO(143, 0, 255, 1)),
+                              topRight: Radius.circular(sdp_fromPX(context, 20)), bottomRight: Radius.circular(sdp_fromPX(context, 20)))),
+                      child: Padding(
+                        padding: EdgeInsets.only(top: sdp_fromPX(context, 5)),
+                        child: Text(
+                          widget.saleText!,
+                          style: TextStyle(
+                              fontSize: sdp_fromPX(context, 17),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Roboto',
+                              color: Color.fromRGBO(143, 0, 255, 1)),
+                        ),
                       ),
                     ),
                   ],

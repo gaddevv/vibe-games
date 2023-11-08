@@ -294,7 +294,7 @@ class _ScreenState extends State<Screen> {
                     children: [
                       if (type == 4 || type == 5)
                         Padding(
-                          padding: EdgeInsets.only(left: sdp_fromPX(context, 150), right: sdp_fromPX(context, 480)),
+                          padding: EdgeInsets.only(left: sdp_fromPX(context, 300), right: sdp_fromPX(context, 480)),
                           child: BackArrowButton(
                             onTap: () {
                               setState(() {
@@ -316,7 +316,7 @@ class _ScreenState extends State<Screen> {
                         ),
                       if (type != 4 && type != 5)
                         Padding(
-                          padding: EdgeInsets.only(left: sdp_fromPX(context, 200)),
+                          padding: EdgeInsets.only(left: sdp_fromPX(context, 300)),
                           child: FiveButtonBar(
                             activeGradient: bluePurpleGradient,
                             inactiveGradient: whiteGradient,
@@ -538,254 +538,255 @@ class _ScreenState extends State<Screen> {
               ),
             ),
             Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 41))),
-            Center(
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Container(
-                  height: sdp_fromPX(context, 70),
-                  width: sdp_fromPX(context, 1600),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      if (trclassText != null)
-                        Padding(
-                          padding: EdgeInsets.only(right: sdp_fromPX(context, trclassText != null ? 250 : 0)),
-                          child: BackArrowButton(
-                            onTap: () {
-                              setState(() {
-                                if (trclassText != null) {
-                                  if (viewCar) viewCar = false;
-                                  currentCategoryData = categoryData[2]!;
-                                  trclassText = null;
-                                  activeTransportClass = false;
-                                }
-                                if (type == 4 || type == 5 || type == 2) {
-                                  type = 0;
-                                  categoryText = 'Акции и специальные предложения';
-                                }
-                              });
-                            },
-                          ),
-                        ),
-                      if (type == 2)
-                        Padding(
-                          padding: EdgeInsets.only(right: sdp_fromPX(context, 600)),
-                        ),
-                      Container(
-                        width: sdp_fromPX(context, 1000),
-                        child: Row(
-                          mainAxisAlignment: trclassText != null ? MainAxisAlignment.start : MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              categoryText!,
-                              style: TextStyle(
-                                  fontSize: sdp_fromPX(context, 43),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Roboto',
-                                  foreground: Paint()..shader = whiteGradient),
+            if (type == 2) RouletteScreen(),
+            if (type != 2)
+              Center(
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: Container(
+                    height: sdp_fromPX(context, 70),
+                    width: sdp_fromPX(context, 1600),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        if (trclassText != null)
+                          Padding(
+                            padding: EdgeInsets.only(right: sdp_fromPX(context, trclassText != null ? 250 : 0)),
+                            child: BackArrowButton(
+                              onTap: () {
+                                setState(() {
+                                  if (trclassText != null) {
+                                    if (viewCar) viewCar = false;
+                                    currentCategoryData = categoryData[2]!;
+                                    trclassText = null;
+                                    activeTransportClass = false;
+                                  }
+                                  if (type == 4 || type == 5 || type == 2) {
+                                    type = 0;
+                                    categoryText = 'Акции и специальные предложения';
+                                  }
+                                });
+                              },
                             ),
-                            Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
-                            if (trclassText != null)
-                              ShaderMask(
-                                blendMode: BlendMode.srcATop,
-                                shaderCallback: (bounds) => LinearGradient(
-                                  colors: <Color>[
-                                    Color.fromRGBO(0, 133, 255, 1),
-                                    Color.fromRGBO(167, 0, 255, 1),
-                                  ],
-                                ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
-                                child: Text(
-                                  trclassText!,
-                                  style: TextStyle(
-                                      fontSize: sdp_fromPX(context, 43),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: 'Roboto',
-                                      foreground: Paint()..shader = bluePurpleGradient),
-                                ),
+                          ),
+                        if (type == 2)
+                          Padding(
+                            padding: EdgeInsets.only(right: sdp_fromPX(context, 600)),
+                          ),
+                        Container(
+                          width: sdp_fromPX(context, 1000),
+                          child: Row(
+                            mainAxisAlignment: trclassText != null ? MainAxisAlignment.start : MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                categoryText!,
+                                style: TextStyle(
+                                    fontSize: sdp_fromPX(context, 43),
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Roboto',
+                                    foreground: Paint()..shader = whiteGradient),
                               ),
-                            if (type == 2)
-                              Padding(
-                                padding: EdgeInsets.only(left: sdp_fromPX(context, 350)),
-                                child: ButtonAnimator(
-                                  childWidget: Container(
-                                    height: sdp_fromPX(context, 70),
-                                    width: sdp_fromPX(context, 274),
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFF24004F),
-                                      shape: RoundedRectangleBorder(
-                                        side: BorderSide(width: sdp_fromPX(context, 2), color: Color(0xFF7400FF)),
-                                        borderRadius: BorderRadius.circular(sdp_fromPX(context, 10)),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                            height: sdp_fromPX(context, 50),
-                                            width: sdp_fromPX(context, 50),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/history-clock.svg',
-                                            )),
-                                        Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 11))),
-                                        Text(
-                                          'История',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: sdp_fromPX(context, 36),
-                                            fontWeight: FontWeight.w400,
-                                            fontFamily: 'Roboto',
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                              Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
+                              if (trclassText != null)
+                                ShaderMask(
+                                  blendMode: BlendMode.srcATop,
+                                  shaderCallback: (bounds) => LinearGradient(
+                                    colors: <Color>[
+                                      Color.fromRGBO(0, 133, 255, 1),
+                                      Color.fromRGBO(167, 0, 255, 1),
+                                    ],
+                                  ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
+                                  child: Text(
+                                    trclassText!,
+                                    style: TextStyle(
+                                        fontSize: sdp_fromPX(context, 43),
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: 'Roboto',
+                                        foreground: Paint()..shader = bluePurpleGradient),
                                   ),
                                 ),
-                              )
-                          ],
+                              if (type == 2)
+                                Padding(
+                                  padding: EdgeInsets.only(left: sdp_fromPX(context, 350)),
+                                  child: ButtonAnimator(
+                                    childWidget: Container(
+                                      height: sdp_fromPX(context, 70),
+                                      width: sdp_fromPX(context, 274),
+                                      decoration: ShapeDecoration(
+                                        color: Color(0xFF24004F),
+                                        shape: RoundedRectangleBorder(
+                                          side: BorderSide(width: sdp_fromPX(context, 2), color: Color(0xFF7400FF)),
+                                          borderRadius: BorderRadius.circular(sdp_fromPX(context, 10)),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                              height: sdp_fromPX(context, 50),
+                                              width: sdp_fromPX(context, 50),
+                                              child: SvgPicture.asset(
+                                                'assets/icons/history-clock.svg',
+                                              )),
+                                          Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 11))),
+                                          Text(
+                                            'История',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: sdp_fromPX(context, 36),
+                                              fontWeight: FontWeight.w400,
+                                              fontFamily: 'Roboto',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
             Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 40))),
-            Container(
-              height: sdp_fromPX(context, type == 0 ? 570 : 770),
-              child: Stack(
-                children: [
-                  Container(
-                    height: sdp_fromPX(context, type != 0 && type != 2 ? double.infinity : 570),
-                    color: Color.fromRGBO(0, 0, 0, 0.6),
-                  ),
-                  Center(
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: sdp_fromPX(context, type == 0 ? 570 : 740),
-                      child: type == 1
-                          ? FittedBox(fit: BoxFit.contain, child: ServicesScreen())
-                          : type == 2
-                              ? RouletteScreen()
-                              : type == 3
-                                  ? FittedBox(fit: BoxFit.contain, child: MatryoshkaScreen())
-                                  : type == 4
-                                      ? FittedBox(fit: BoxFit.contain, child: DonatPayScreen())
-                                      : type == 5
-                                          ? FittedBox(fit: BoxFit.contain, child: CoinPayScreen())
-                                          : ListView.builder(
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.horizontal,
-                                              physics: viewCar == true ? NeverScrollableScrollPhysics() : ClampingScrollPhysics(),
-                                              padding: EdgeInsets.symmetric(horizontal: sdp_fromPX(context, 100)),
-                                              itemCount: currentCategoryData.length,
-                                              itemBuilder: (context, index) {
-                                                final String image = currentCategoryData[index]['image'];
-                                                final String? icon = currentCategoryData[index]['icon'];
-
-                                                final title = currentCategoryData[index]['title'];
-                                                final subtitle = currentCategoryData[index]['subtitle'];
-                                                final Gradient? gradient = currentCategoryData[index]['gradient'];
-                                                final Color? color = currentCategoryData[index]['color'];
-                                                final String? subtext = currentCategoryData[index]['subtext'];
-                                                final String? subtextTwo = currentCategoryData[index]['subtextTwo'];
-                                                final String? saletext = currentCategoryData[index]['saletext'];
-                                                final String? buttontext = currentCategoryData[index]['buttonText'];
-                                                confirmation(BuildContext context) {
-                                                  showDialog(
-                                                      useSafeArea: false,
-                                                      context: context,
-                                                      builder: (BuildContext context) {
-                                                        return ConfirmationAlert(
-                                                          title: 'Подтверждение',
-                                                          text: 'Вы действительно ',
-                                                          richText: 'согласны приобрести данный товар за ${buttontext ?? subtext} руб? ',
-                                                          cancelButton: true,
-                                                          acceptButtonText: 'Купить',
-                                                          onTapAccept: () {
-                                                            setState(() {
-                                                              Navigator.pop(context);
-                                                            });
-                                                          },
-                                                          onTapCancel: () {
-                                                            setState(() {
-                                                              Navigator.pop(context);
-                                                            });
-                                                          },
-                                                        );
-                                                      });
-                                                }
-
-                                                return viewCar == true
-                                                    ? BuyCarCard(
-                                                        image: currentCategoryData[index]['image'],
-                                                        title: currentCategoryData[index]['title'],
-                                                        speed: currentCategoryData[index]['speed'],
-                                                        boost: currentCategoryData[index]['boost'],
-                                                        trunk: currentCategoryData[index]['trunk'],
-                                                        buttonText: currentCategoryData[index]['buttonText'],
-                                                        onTap: () {
-                                                          confirmation(context);
-                                                        },
-                                                      )
-                                                    : Padding(
-                                                        padding: EdgeInsets.only(left: sdp_fromPX(context, 40)),
-                                                        child: StoreCard(
-                                                          image: image,
-                                                          icon: icon,
-                                                          onTap: () {
-                                                            title == 'Эконом'
-                                                                ? {
-                                                                    trclassText = '(Эконом)',
-                                                                    activeTransportClass = true,
-                                                                    set_category(2),
-                                                                  }
-                                                                : title == 'Средний'
-                                                                    ? {
-                                                                        trclassText = '(Средний)',
-                                                                        activeTransportClass = true,
-                                                                        set_category(2),
-                                                                      }
-                                                                    : title == 'Премиум'
-                                                                        ? {
-                                                                            trclassText = '(Премиум)',
-                                                                            activeTransportClass = true,
-                                                                            set_category(2),
-                                                                          }
-                                                                        : title == 'Яхты'
-                                                                            ? {
-                                                                                trclassText = '(Яхты)',
-                                                                                activeTransportClass = true,
-                                                                                set_category(2),
-                                                                              }
-                                                                            : {
-                                                                                if (trclassText != null)
-                                                                                  {
-                                                                                    viewCar = true,
-                                                                                  }
-                                                                                else
-                                                                                  {
-                                                                                    confirmation(context),
-                                                                                  },
-                                                                              };
-                                                            setState(() {});
-                                                          },
-                                                          title: title,
-                                                          subtitle: subtitle,
-                                                          gradient: gradient,
-                                                          color: color,
-                                                          subText: subtext,
-                                                          subtextTwo: subtextTwo,
-                                                          saleText: saletext,
-                                                          buttonText: buttontext,
-                                                        ),
-                                                      );
-                                              }),
+            if (type != 2)
+              Container(
+                height: sdp_fromPX(context, type == 0 ? 570 : 770),
+                child: Stack(
+                  children: [
+                    Container(
+                      height: sdp_fromPX(context, type != 0 && type != 2 ? double.infinity : 570),
+                      color: Color.fromRGBO(0, 0, 0, 0.6),
                     ),
-                  ),
-                ],
+                    Center(
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: sdp_fromPX(context, type == 0 ? 570 : 740),
+                        child: type == 1
+                            ? FittedBox(fit: BoxFit.contain, child: ServicesScreen())
+                            : type == 3
+                                ? FittedBox(fit: BoxFit.contain, child: MatryoshkaScreen())
+                                : type == 4
+                                    ? FittedBox(fit: BoxFit.contain, child: DonatPayScreen())
+                                    : type == 5
+                                        ? FittedBox(fit: BoxFit.contain, child: CoinPayScreen())
+                                        : ListView.builder(
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.horizontal,
+                                            physics: viewCar == true ? NeverScrollableScrollPhysics() : ClampingScrollPhysics(),
+                                            padding: EdgeInsets.symmetric(horizontal: sdp_fromPX(context, 100)),
+                                            itemCount: currentCategoryData.length,
+                                            itemBuilder: (context, index) {
+                                              final String image = currentCategoryData[index]['image'];
+                                              final String? icon = currentCategoryData[index]['icon'];
+
+                                              final title = currentCategoryData[index]['title'];
+                                              final subtitle = currentCategoryData[index]['subtitle'];
+                                              final Gradient? gradient = currentCategoryData[index]['gradient'];
+                                              final Color? color = currentCategoryData[index]['color'];
+                                              final String? subtext = currentCategoryData[index]['subtext'];
+                                              final String? subtextTwo = currentCategoryData[index]['subtextTwo'];
+                                              final String? saletext = currentCategoryData[index]['saletext'];
+                                              final String? buttontext = currentCategoryData[index]['buttonText'];
+                                              confirmation(BuildContext context) {
+                                                showDialog(
+                                                    useSafeArea: false,
+                                                    context: context,
+                                                    builder: (BuildContext context) {
+                                                      return ConfirmationAlert(
+                                                        title: 'Подтверждение',
+                                                        text: 'Вы действительно ',
+                                                        richText: 'согласны приобрести данный товар за ${buttontext ?? subtext} руб? ',
+                                                        cancelButton: true,
+                                                        acceptButtonText: 'Купить',
+                                                        onTapAccept: () {
+                                                          setState(() {
+                                                            Navigator.pop(context);
+                                                          });
+                                                        },
+                                                        onTapCancel: () {
+                                                          setState(() {
+                                                            Navigator.pop(context);
+                                                          });
+                                                        },
+                                                      );
+                                                    });
+                                              }
+
+                                              return viewCar == true
+                                                  ? BuyCarCard(
+                                                      image: currentCategoryData[index]['image'],
+                                                      title: currentCategoryData[index]['title'],
+                                                      speed: currentCategoryData[index]['speed'],
+                                                      boost: currentCategoryData[index]['boost'],
+                                                      trunk: currentCategoryData[index]['trunk'],
+                                                      buttonText: currentCategoryData[index]['buttonText'],
+                                                      onTap: () {
+                                                        confirmation(context);
+                                                      },
+                                                    )
+                                                  : Padding(
+                                                      padding: EdgeInsets.only(left: sdp_fromPX(context, 40)),
+                                                      child: StoreCard(
+                                                        image: image,
+                                                        icon: icon,
+                                                        onTap: () {
+                                                          title == 'Эконом'
+                                                              ? {
+                                                                  trclassText = '(Эконом)',
+                                                                  activeTransportClass = true,
+                                                                  set_category(2),
+                                                                }
+                                                              : title == 'Средний'
+                                                                  ? {
+                                                                      trclassText = '(Средний)',
+                                                                      activeTransportClass = true,
+                                                                      set_category(2),
+                                                                    }
+                                                                  : title == 'Премиум'
+                                                                      ? {
+                                                                          trclassText = '(Премиум)',
+                                                                          activeTransportClass = true,
+                                                                          set_category(2),
+                                                                        }
+                                                                      : title == 'Яхты'
+                                                                          ? {
+                                                                              trclassText = '(Яхты)',
+                                                                              activeTransportClass = true,
+                                                                              set_category(2),
+                                                                            }
+                                                                          : {
+                                                                              if (trclassText != null)
+                                                                                {
+                                                                                  viewCar = true,
+                                                                                }
+                                                                              else
+                                                                                {
+                                                                                  confirmation(context),
+                                                                                },
+                                                                            };
+                                                          setState(() {});
+                                                        },
+                                                        title: title,
+                                                        subtitle: subtitle,
+                                                        gradient: gradient,
+                                                        color: color,
+                                                        subText: subtext,
+                                                        subtextTwo: subtextTwo,
+                                                        saleText: saletext,
+                                                        buttonText: buttontext,
+                                                      ),
+                                                    );
+                                            }),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
             if (type == 0)
               Padding(
                 padding: EdgeInsets.only(top: sdp_fromPX(context, 60), left: sdp_fromPX(context, 100), right: sdp_fromPX(context, 100)),

@@ -73,115 +73,119 @@ class _FiveButtonBarState extends State<FiveButtonBar> {
           width: sdp_fromPX(context, widget.width ?? 757),
           alignment: Alignment.center,
           decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5), borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
-          child: Row(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, children: [
-            FittedBox(
-              fit: BoxFit.contain,
-              child: Container(
-                height: sdp_fromPX(context, 38),
-                child: ButtonAnimator(
-                  childWidget: SelectButton(
-                    text: widget.firstButtonText,
-                    style: TextStyle(
-                        fontSize: sdp_fromPX(context, 32),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
-                        foreground: Paint()..shader = widget.state == 0 ? widget.activeGradient : widget.inactiveGradient),
-                    glowing: widget.glowing,
-                    value: widget.firstButtonValue,
-                    state: widget.state,
-                    onPressed: widget.onPressed,
-                  ),
-                ),
-              ),
-            ),
-            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
-            FittedBox(
-              fit: BoxFit.contain,
-              child: Container(
-                height: sdp_fromPX(context, 38),
-                child: ButtonAnimator(
-                  childWidget: SelectButton(
-                    text: widget.secondButtonText,
-                    style: TextStyle(
-                        fontSize: sdp_fromPX(context, 32),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
-                        foreground: Paint()..shader = widget.state == 1 ? widget.activeGradient : widget.inactiveGradient),
-                    glowing: widget.glowing,
-                    value: widget.secondButtonValue,
-                    state: widget.state,
-                    onPressed: widget.onPressed,
-                  ),
-                ),
-              ),
-            ),
-            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
-            FittedBox(
-              fit: BoxFit.contain,
-              child: Container(
-                height: sdp_fromPX(context, 38),
-                child: ButtonAnimator(
-                  childWidget: SelectButton(
-                    text: widget.thirdButtonText,
-                    style: TextStyle(
-                        fontSize: sdp_fromPX(context, 32),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
-                        foreground: Paint()..shader = widget.state == 2 ? widget.activeGradient : widget.inactiveGradient),
-                    glowing: widget.glowing,
-                    value: widget.thirdButtonValue,
-                    state: widget.state,
-                    onPressed: widget.onPressed,
-                  ),
-                ),
-              ),
-            ),
-            Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
-            FittedBox(
-              fit: BoxFit.contain,
-              child: Container(
-                height: sdp_fromPX(context, 38),
-                child: ButtonAnimator(
-                  childWidget: SelectButton(
-                    text: widget.fourthButtonText,
-                    style: TextStyle(
-                        fontSize: sdp_fromPX(context, 32),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Roboto',
-                        foreground: Paint()..shader = widget.state == 3 ? widget.activeGradient : widget.inactiveGradient),
-                    glowing: widget.glowing,
-                    value: widget.fourthButtonValue,
-                    state: widget.state,
-                    onPressed: widget.onPressed,
-                  ),
-                ),
-              ),
-            ),
-            if (widget.fifthButtonText != null)
-              Padding(
-                padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 64)),
-                child: FittedBox(
+          child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FittedBox(
                   fit: BoxFit.contain,
                   child: Container(
                     height: sdp_fromPX(context, 38),
                     child: ButtonAnimator(
                       childWidget: SelectButton(
-                        text: widget.fifthButtonText,
+                        text: widget.firstButtonText,
                         style: TextStyle(
                             fontSize: sdp_fromPX(context, 32),
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Roboto',
-                            foreground: Paint()..shader = widget.state == 4 ? widget.activeGradient : widget.inactiveGradient),
+                            foreground: Paint()..shader = widget.state == 0 ? widget.activeGradient : widget.inactiveGradient),
                         glowing: widget.glowing,
-                        value: widget.fifthButtonValue,
+                        value: widget.firstButtonValue,
                         state: widget.state,
                         onPressed: widget.onPressed,
                       ),
                     ),
                   ),
                 ),
-              )
-          ]),
+                Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: Container(
+                    height: sdp_fromPX(context, 38),
+                    child: ButtonAnimator(
+                      childWidget: SelectButton(
+                        text: widget.secondButtonText,
+                        style: TextStyle(
+                            fontSize: sdp_fromPX(context, 32),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Roboto',
+                            foreground: Paint()..shader = widget.state == 1 ? widget.activeGradient : widget.inactiveGradient),
+                        glowing: widget.glowing,
+                        value: widget.secondButtonValue,
+                        state: widget.state,
+                        onPressed: widget.onPressed,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: Container(
+                    height: sdp_fromPX(context, 38),
+                    child: ButtonAnimator(
+                      childWidget: SelectButton(
+                        text: widget.thirdButtonText,
+                        style: TextStyle(
+                            fontSize: sdp_fromPX(context, 32),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Roboto',
+                            foreground: Paint()..shader = widget.state == 2 ? widget.activeGradient : widget.inactiveGradient),
+                        glowing: widget.glowing,
+                        value: widget.thirdButtonValue,
+                        state: widget.state,
+                        onPressed: widget.onPressed,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 54))),
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: Container(
+                    height: sdp_fromPX(context, 38),
+                    child: ButtonAnimator(
+                      childWidget: SelectButton(
+                        text: widget.fourthButtonText,
+                        style: TextStyle(
+                            fontSize: sdp_fromPX(context, 32),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Roboto',
+                            foreground: Paint()..shader = widget.state == 3 ? widget.activeGradient : widget.inactiveGradient),
+                        glowing: widget.glowing,
+                        value: widget.fourthButtonValue,
+                        state: widget.state,
+                        onPressed: widget.onPressed,
+                      ),
+                    ),
+                  ),
+                ),
+                if (widget.fifthButtonText != null)
+                  Padding(
+                    padding: EdgeInsets.only(left: widget.contentPadding ?? sdp_fromPX(context, 64)),
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: Container(
+                        height: sdp_fromPX(context, 38),
+                        child: ButtonAnimator(
+                          childWidget: SelectButton(
+                            text: widget.fifthButtonText,
+                            style: TextStyle(
+                                fontSize: sdp_fromPX(context, 32),
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Roboto',
+                                foreground: Paint()..shader = widget.state == 4 ? widget.activeGradient : widget.inactiveGradient),
+                            glowing: widget.glowing,
+                            value: widget.fifthButtonValue,
+                            state: widget.state,
+                            onPressed: widget.onPressed,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+              ]),
         ),
       ),
     );
