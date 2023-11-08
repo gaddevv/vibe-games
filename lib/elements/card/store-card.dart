@@ -106,7 +106,7 @@ class _StoreCardState extends State<StoreCard> {
                       fit: BoxFit.contain,
                       child: Container(
                         height: sdp_fromPX(context, 33),
-                        width: sdp_fromPX(context, 178),
+                        width: sdp_fromPX(context, 180),
                         decoration: BoxDecoration(
                             color: Color(0xFFDE6B6C),
                             borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
@@ -265,7 +265,7 @@ class _StoreCardState extends State<StoreCard> {
               padding: EdgeInsets.only(left: sdp_fromPX(context, 40)),
               child: Container(
                 height: sdp_fromPX(context, 33),
-                width: sdp_fromPX(context, 250),
+                width: sdp_fromPX(context, 252),
                 decoration: BoxDecoration(
                     color: Color.fromRGBO(143, 0, 255, 1),
                     borderRadius: BorderRadius.circular(sdp_fromPX(context, 15)),
