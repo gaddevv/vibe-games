@@ -70,7 +70,7 @@ class _StoreCardState extends State<StoreCard> {
                 border: Border.all(color: widget.borderColor ?? Colors.transparent),
                 gradient: widget.gradient == null
                     ? RadialGradient(
-                        radius: sdp_fromPX(context, 0.8),
+                        radius: sdp_fromPX(context, 1.6),
                         colors: [Color.fromARGB(255, 140, 0, 255), Color.fromARGB(255, 72, 26, 109)],
                       )
                     : widget.gradient,
