@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/sdp.dart';
-import 'package:vibes_studio/elements/separeted-formatter.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/components/sdp.dart';
+import 'package:vibes_studio/components/separeted-formatter.dart';
 
 redBlack(BuildContext context) {
   List<bool> isSelected = List.generate(40, (index) => false);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class BuyCarCard extends StatefulWidget {
   final String image;
@@ -263,7 +263,7 @@ class _BuyCarCardState extends State<BuyCarCard> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      widget.icon ?? 'assets/icons/store-card/shopping-cart.svg',
+                      widget.icon ?? 'assets/icons/old-store/store-card/shopping-cart.svg',
                       height: sdp_fromPX(context, 40),
                       width: sdp_fromPX(context, 40),
                     ),

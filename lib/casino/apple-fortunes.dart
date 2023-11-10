@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/sdp.dart';
-import 'package:vibes_studio/elements/separeted-formatter.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/components/sdp.dart';
+import 'package:vibes_studio/components/separeted-formatter.dart';
 
 appleFortunes(BuildContext context) {
   List<List<String>> cells = [];
@@ -57,19 +57,19 @@ appleFortunes(BuildContext context) {
                   ? SvgPicture.asset(
                       height: sdp_fromPX(context, 48),
                       width: sdp_fromPX(context, 48),
-                      'assets/icons/greenapple.svg',
+                      'assets/icons/casino/apple-fortune/greenapple.svg',
                     )
                   : cells[row][col] == 'rotten_apple'
                       ? SvgPicture.asset(
                           height: sdp_fromPX(context, 48),
                           width: sdp_fromPX(context, 48),
-                          'assets/icons/yellowapple.svg',
+                          'assets/icons/casino/apple-fortune/yellowapple.svg',
                         )
                       : cells[row][col] == 'bomb'
                           ? SvgPicture.asset(
                               height: sdp_fromPX(context, 48),
                               width: sdp_fromPX(context, 48),
-                              'assets/icons/bomb.svg',
+                              'assets/icons/casino/apple-fortune/bomb.svg',
                             )
                           : Text(''),
             ),
@@ -96,19 +96,19 @@ appleFortunes(BuildContext context) {
             ? SvgPicture.asset(
                 height: sdp_fromPX(context, 48),
                 width: sdp_fromPX(context, 48),
-                'assets/icons/greenapple.svg',
+                'assets/icons/casino/apple-fortune/greenapple.svg',
               )
             : cells[row][col] == 'rotten_apple'
                 ? SvgPicture.asset(
                     height: sdp_fromPX(context, 48),
                     width: sdp_fromPX(context, 48),
-                    'assets/icons/yellowapple.svg',
+                    'assets/icons/casino/apple-fortune/yellowapple.svg',
                   )
                 : cells[row][col] == 'bomb'
                     ? SvgPicture.asset(
                         height: sdp_fromPX(context, 48),
                         width: sdp_fromPX(context, 48),
-                        'assets/icons/bomb.svg',
+                        'assets/icons/casino/apple-fortune/bomb.svg',
                       )
                     : Text(''),
       ),
@@ -155,7 +155,7 @@ appleFortunes(BuildContext context) {
                           Padding(
                               padding: EdgeInsets.only(top: sdp_fromPX(context, 49), left: sdp_fromPX(context, 158)),
                               child: SvgPicture.asset(
-                                'assets/icons/applefortune.svg',
+                                'assets/icons/casino/apple-fortune/applefortune.svg',
                                 height: sdp_fromPX(context, 109),
                                 width: sdp_fromPX(context, 109),
                               )),
@@ -436,19 +436,19 @@ appleFortunes(BuildContext context) {
                                               ? SvgPicture.asset(
                                                   height: sdp_fromPX(context, 48),
                                                   width: sdp_fromPX(context, 48),
-                                                  'assets/icons/greenapple.svg',
+                                                  'assets/icons/casino/apple-fortune/greenapple.svg',
                                                 )
                                               : cells[row][col] == 'rotten_apple'
                                                   ? SvgPicture.asset(
                                                       height: sdp_fromPX(context, 48),
                                                       width: sdp_fromPX(context, 48),
-                                                      'assets/icons/yellowapple.svg',
+                                                      'assets/icons/casino/apple-fortune/yellowapple.svg',
                                                     )
                                                   : cells[row][col] == 'bomb'
                                                       ? SvgPicture.asset(
                                                           height: sdp_fromPX(context, 48),
                                                           width: sdp_fromPX(context, 48),
-                                                          'assets/icons/bomb.svg',
+                                                          'assets/icons/casino/apple-fortune/bomb.svg',
                                                         )
                                                       : Text(''),
                                         ),

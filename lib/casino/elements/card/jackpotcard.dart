@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class JackpotCard extends StatefulWidget {
   final String image;

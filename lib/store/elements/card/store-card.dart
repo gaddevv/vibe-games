@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class StoreCard extends StatefulWidget {
   final String image;

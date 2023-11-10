@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vibes_studio/elements/buttons/raw-button.dart';
+import 'package:vibes_studio/components/buttons/raw-button.dart';
 
 class IconsButton extends StatefulWidget {
   final double? width;

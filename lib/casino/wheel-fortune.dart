@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class WheelFortuneScreen extends StatefulWidget {
   const WheelFortuneScreen({super.key});
@@ -41,36 +41,36 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
         if (selectedSegment == 0) {
           goodPrize = true;
           logo = "skin";
-          image = "assets/images/morgen.png";
+          image = "assets/images/casino/wheel-fortune/prize/morgen.png";
           action = "скин Morgenshtern";
         } else if (selectedSegment == 5 || selectedSegment == 15) {
           goodPrize = true;
           logo = "accessory";
-          image = "assets/images/watch.png";
+          image = "assets/images/casino/wheel-fortune/prize/watch.png";
           action = "аксуссуар";
         } else if (selectedSegment == 10) {
           goodPrize = true;
           logo = "car";
-          image = "assets/images/car.png";
+          image = "assets/images/casino/wheel-fortune/prize/car.png";
           action = "машину";
         } else {
           int segmentIndex = (selectedSegment % 5) - 1;
           goodPrize = false;
           if (segmentIndex == 0) {
             logo = "experience";
-            image = "assets/images/experience.png";
+            image = "assets/images/casino/wheel-fortune/prize/experience.png";
             action = "2 EXP";
           } else if (segmentIndex == 1) {
             logo = "cash";
-            image = "assets/images/cash.png";
+            image = "assets/images/casino/wheel-fortune/prize/cash.png";
             action = "200 000 Р";
           } else if (segmentIndex == 2) {
             logo = "case";
-            image = "assets/images/case.png";
+            image = "assets/images/casino/wheel-fortune/prize/case.png";
             action = "кейс аксессуаров";
           } else if (segmentIndex == 3) {
             logo = "donate";
-            image = "assets/images/donate.png";
+            image = "assets/images/casino/wheel-fortune/prize/donate.png";
             action = "20 доната";
           }
         }
@@ -154,7 +154,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset(
-                              'assets/icons/fire.svg',
+                              'assets/icons/casino/wheel-fortune/fire.svg',
                               height: sdp_fromPX(context, 52),
                               width: sdp_fromPX(context, 42.4),
                             ),
@@ -243,7 +243,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
               height: double.infinity,
               width: double.infinity,
               child: Image.asset(
-                'assets/images/wheelFortuneBG.png',
+                'assets/images/casino/wheel-fortune/wheelFortuneBG.png',
                 fit: BoxFit.fill,
               ),
             ),
@@ -340,7 +340,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                         Padding(
                           padding: EdgeInsets.only(top: sdp_fromPX(context, 68)),
                           child: SvgPicture.asset(
-                            'assets/icons/rectangle.svg',
+                            'assets/icons/casino/wheel-fortune/rectangle.svg',
                             height: sdp_fromPX(context, 54),
                             width: sdp_fromPX(context, 52),
                           ),
@@ -352,7 +352,7 @@ class _WheelFortuneScreenState extends State<WheelFortuneScreen> with TickerProv
                             child: Container(
                               height: sdp_fromPX(context, 860),
                               width: sdp_fromPX(context, 860),
-                              child: Image.asset('assets/images/wheel.png'),
+                              child: Image.asset('assets/images/casino/wheel-fortune/wheel.png'),
                             ),
                           ),
                         ),

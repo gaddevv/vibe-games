@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/card/store-card.dart';
-import 'package:vibes_studio/elements/lists/check-list.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/store/elements/card/store-card.dart';
+import 'package:vibes_studio/store/elements/lists/check-list.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class MatryoshkaScreen extends StatefulWidget {
   const MatryoshkaScreen({super.key});
@@ -46,7 +46,7 @@ class _MatryoshkaScreenState extends State<MatryoshkaScreen> {
           Stack(
             children: [
               StoreCard(
-                image: 'assets/images/sales/box.png',
+                image: 'assets/images/old-store/sales/box.png',
                 title: 'Акция дня',
                 subtitle: 'OG Buda',
                 subText: '1200',
@@ -71,7 +71,7 @@ class _MatryoshkaScreenState extends State<MatryoshkaScreen> {
                       )),
                   child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     SvgPicture.asset(
-                      'assets/icons/coin.svg',
+                      'assets/icons/old-store/coin.svg',
                       height: sdp_fromPX(context, 40),
                       width: sdp_fromPX(context, 40),
                     ),
@@ -109,7 +109,7 @@ class _MatryoshkaScreenState extends State<MatryoshkaScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    'assets/icons/store-card/shopping-cart.svg',
+                    'assets/icons/old-store/store-card/shopping-cart.svg',
                     height: sdp_fromPX(context, 40),
                     width: sdp_fromPX(context, 40),
                   ),
@@ -144,7 +144,7 @@ class _MatryoshkaScreenState extends State<MatryoshkaScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    'assets/icons/closebg-white.svg',
+                    'assets/icons/old-store/closebg-white.svg',
                     height: sdp_fromPX(context, 37),
                     width: sdp_fromPX(context, 37),
                   ),

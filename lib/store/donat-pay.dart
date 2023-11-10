@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vibes_studio/elements/alert/confirmation.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/card/donat-card.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/store/elements/alert/confirmation.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/store/elements/card/donat-card.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class DonatPayScreen extends StatefulWidget {
   const DonatPayScreen({super.key});

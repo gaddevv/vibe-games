@@ -2,48 +2,48 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/card/jackpotcard.dart';
-import 'package:vibes_studio/elements/sdp.dart';
-import 'package:vibes_studio/elements/separeted-formatter.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/casino/elements/card/jackpotcard.dart';
+import 'package:vibes_studio/components/sdp.dart';
+import 'package:vibes_studio/components/separeted-formatter.dart';
 
 jatpack(BuildContext context) {
-  List<String> image = [
-    'assets/icons/grape.svg',
-    'assets/icons/diamond.svg',
-    'assets/icons/cherry.svg',
-    'assets/icons/clover.svg',
-    'assets/icons/lemon.svg',
-    'assets/icons/M.svg',
-    'assets/icons/7.svg',
-    'assets/icons/grape.svg',
-    'assets/icons/diamond.svg',
-    'assets/icons/cherry.svg',
-    'assets/icons/clover.svg',
-    'assets/icons/lemon.svg',
-    'assets/icons/M.svg',
-    'assets/icons/7.svg',
-    'assets/icons/grape.svg',
-    'assets/icons/diamond.svg',
-    'assets/icons/cherry.svg',
-    'assets/icons/clover.svg',
-    'assets/icons/lemon.svg',
-    'assets/icons/M.svg',
-    'assets/icons/7.svg',
+  List<String> icons = [
+    'assets/icons/casino/jackpot/grape.svg',
+    'assets/icons/casino/jackpot/diamond.svg',
+    'assets/icons/casino/jackpot/cherry.svg',
+    'assets/icons/casino/jackpot/clover.svg',
+    'assets/icons/casino/jackpot/lemon.svg',
+    'assets/icons/casino/jackpot/M.svg',
+    'assets/icons/casino/jackpot/7.svg',
+    'assets/icons/casino/jackpot/grape.svg',
+    'assets/icons/casino/jackpot/diamond.svg',
+    'assets/icons/casino/jackpot/cherry.svg',
+    'assets/icons/casino/jackpot/clover.svg',
+    'assets/icons/casino/jackpot/lemon.svg',
+    'assets/icons/casino/jackpot/M.svg',
+    'assets/icons/casino/jackpot/7.svg',
+    'assets/icons/casino/jackpot/grape.svg',
+    'assets/icons/casino/jackpot/diamond.svg',
+    'assets/icons/casino/jackpot/cherry.svg',
+    'assets/icons/casino/jackpot/clover.svg',
+    'assets/icons/casino/jackpot/lemon.svg',
+    'assets/icons/casino/jackpot/M.svg',
+    'assets/icons/casino/jackpot/7.svg',
   ];
 
-  List<String> shuffledImage = [];
+  List<String> shuffledIcons = [];
   void shuffleImages() {
     final random = Random();
-    for (int i = shuffledImage.length - 1; i > 0; i--) {
+    for (int i = shuffledIcons.length - 1; i > 0; i--) {
       int j = random.nextInt(i + 1);
-      String temp = shuffledImage[i];
-      shuffledImage[i] = shuffledImage[j];
-      shuffledImage[j] = temp;
+      String temp = shuffledIcons[i];
+      shuffledIcons[i] = shuffledIcons[j];
+      shuffledIcons[j] = temp;
     }
   }
 
-  shuffledImage = List.from(image);
+  shuffledIcons = List.from(icons);
 
   showDialog(
       barrierColor: Colors.transparent,
@@ -152,15 +152,15 @@ jatpack(BuildContext context) {
                           padding: EdgeInsets.only(top: sdp_fromPX(context, 115), left: sdp_fromPX(context, 60)),
                           child: Column(
                             children: [
-                              JackpotCard(image: 'assets/images/reward/reward-7.png'),
+                              JackpotCard(image: 'assets/images/casino/jackpot/reward/reward-7.png'),
                               Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                              JackpotCard(image: 'assets/images/reward/reward-diamond.png'),
+                              JackpotCard(image: 'assets/images/casino/jackpot/reward/reward-diamond.png'),
                               Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                              JackpotCard(image: 'assets/images/reward/reward-lemon.png'),
+                              JackpotCard(image: 'assets/images/casino/jackpot/reward/reward-lemon.png'),
                               Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                              JackpotCard(image: 'assets/images/reward/reward-grape.png'),
+                              JackpotCard(image: 'assets/images/casino/jackpot/reward/reward-grape.png'),
                               Padding(padding: EdgeInsets.only(top: sdp_fromPX(context, 20))),
-                              JackpotCard(image: 'assets/images/reward/reward-cherry.png'),
+                              JackpotCard(image: 'assets/images/casino/jackpot/reward/reward-cherry.png'),
                             ],
                           ),
                         ),
@@ -188,7 +188,7 @@ jatpack(BuildContext context) {
                                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 3,
                                         ),
-                                        itemCount: shuffledImage.length,
+                                        itemCount: shuffledIcons.length,
                                         itemBuilder: (context, index) {
                                           return Padding(
                                             padding: EdgeInsets.all(sdp_fromPX(context, 30)),
@@ -196,7 +196,7 @@ jatpack(BuildContext context) {
                                               height: sdp_fromPX(context, 188),
                                               width: sdp_fromPX(context, 188),
                                               child: Center(
-                                                child: SvgPicture.asset(shuffledImage[index]),
+                                                child: SvgPicture.asset(shuffledIcons[index]),
                                               ),
                                             ),
                                           );

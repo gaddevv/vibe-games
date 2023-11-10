@@ -102,26 +102,38 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/images/reward/
-    - assets/images/musics/
-    - assets/images/sales/
-    - assets/images/skins/
-    - assets/images/transports/
-    - assets/images/transports/economy/
-    - assets/images/transports/average/
-    - assets/images/transports/premium/
-    - assets/images/transports/yachts/
-    - assets/images/transports/unique/
-    - assets/images/roulette/everyday-case/
-    - assets/images/roulette/gold-case/
-    - assets/images/roulette/silver-case/
-    - assets/images/roulette/bronz-case/
-    - assets/images/roulette/car-case/
+    - assets/images/casino/jackpot/reward/
+    - assets/images/casino/wheel-fortune/
+    - assets/images/casino/wheel-fortune/prize/
+    - assets/images/old-store/musics/
+    - assets/images/old-store/sales/
+    - assets/images/old-store/skins/
+    - assets/images/old-store/games-packages/
+
+    - assets/images/old-store/transports/
+    - assets/images/old-store/transports/economy/
+    - assets/images/old-store/transports/average/
+    - assets/images/old-store/transports/premium/
+    - assets/images/old-store/transports/yachts/
+    - assets/images/old-store/transports/unique/
+    - assets/images/old-store/roulette/everyday-case/
+    - assets/images/old-store/roulette/gold-case/
+    - assets/images/old-store/roulette/silver-case/
+    - assets/images/old-store/roulette/bronz-case/
+    - assets/images/old-store/roulette/car-case/
 
 
-    - assets/images/games-packages/    
     - assets/icons/
-    - assets/icons/store-card/
+    - assets/icons/old-store/
+    - assets/icons/old-store/store-card/
+    - assets/icons/casino/
+    - assets/icons/casino/apple-fortune/
+    - assets/icons/casino/jackpot/
+    - assets/icons/casino/wheel-fortune/
+
+
+
+
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

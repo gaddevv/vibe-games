@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class BackArrowButton extends StatefulWidget {
   final Function? onTap;
@@ -21,7 +21,7 @@ class _BackArrowButtonState extends State<BackArrowButton> {
           Container(
             height: sdp_fromPX(context, 38),
             width: sdp_fromPX(context, 38),
-            child: SvgPicture.asset('assets/icons/arrow-left.svg'),
+            child: SvgPicture.asset('assets/icons/old-store/arrow-left.svg'),
           ),
           Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 10))),
           Text(

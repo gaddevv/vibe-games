@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vibes_studio/elements/alert/confirmation.dart';
-import 'package:vibes_studio/elements/bottom-bar/five-button-bar.dart';
-import 'package:vibes_studio/elements/buttons/back-button.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/card/buycar-card.dart';
-import 'package:vibes_studio/elements/card/store-card.dart';
-import 'package:vibes_studio/elements/gradient/linear-gradient.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/store/elements/alert/confirmation.dart';
+import 'package:vibes_studio/store/elements/bottom-bar/five-button-bar.dart';
+import 'package:vibes_studio/components/buttons/back-button.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/store/buycar.dart';
+import 'package:vibes_studio/store/elements/card/store-card.dart';
+import 'package:vibes_studio/store/elements/gradient/linear-gradient.dart';
+import 'package:vibes_studio/components/sdp.dart';
 import 'package:vibes_studio/store/coin-pay.dart';
 import 'package:vibes_studio/store/donat-pay.dart';
 import 'package:vibes_studio/store/matryoshka.dart';
@@ -61,11 +61,11 @@ class _ScreenState extends State<Screen> {
   Map<int, List<Map<String, dynamic>>> transportClass = {
     0: [
       {
-        'image': 'assets/images/transports/economy/economy.png',
+        'image': 'assets/images/old-store/transports/economy/economy.png',
         'title': 'Lada',
         'subtitle': 'Priora',
         'subtext': '4300 руб',
-        'icon': 'assets/icons/store-card/eye.svg',
+        'icon': 'assets/icons/old-store/store-card/eye.svg',
         'speed': 200.0,
         'boost': 9.8,
         'trunk': 50.0,
@@ -73,11 +73,11 @@ class _ScreenState extends State<Screen> {
     ],
     1: [
       {
-        'image': 'assets/images/transports/average/average.png',
+        'image': 'assets/images/old-store/transports/average/average.png',
         'title': 'Mercedes-Benz',
         'subtitle': 'Gls',
         'subtext': '7800 руб',
-        'icon': 'assets/icons/store-card/eye.svg',
+        'icon': 'assets/icons/old-store/store-card/eye.svg',
         'speed': 260.0,
         'boost': 7.6,
         'trunk': 100.0,
@@ -85,11 +85,11 @@ class _ScreenState extends State<Screen> {
     ],
     2: [
       {
-        'image': 'assets/images/transports/premium/premium.png',
+        'image': 'assets/images/old-store/transports/premium/premium.png',
         'title': 'McLaren',
         'subtitle': '720s Coupe',
         'subtext': '15000 руб',
-        'icon': 'assets/icons/store-card/eye.svg',
+        'icon': 'assets/icons/old-store/store-card/eye.svg',
         'speed': 309.0,
         'boost': 2.1,
         'trunk': 50.0,
@@ -97,11 +97,11 @@ class _ScreenState extends State<Screen> {
     ],
     3: [
       {
-        'image': 'assets/images/transports/yachts/yachts.png',
+        'image': 'assets/images/old-store/transports/yachts/yachts.png',
         'title': 'Honda',
         'subtitle': 'CBR 1000RR',
         'subtext': '30000 руб',
-        'icon': 'assets/icons/store-card/eye.svg',
+        'icon': 'assets/icons/old-store/store-card/eye.svg',
         'speed': 360.0,
         'boost': 1.7,
         'trunk': 1.0,
@@ -111,9 +111,14 @@ class _ScreenState extends State<Screen> {
 
   Map<int, List<Map<String, dynamic>>> categoryData = {
     0: [
-      {'image': 'assets/images/sales/box.png', 'title': 'Для вас', 'subtitle': 'Специальное предложение', 'icon': 'assets/icons/store-card/eye.svg'},
       {
-        'image': 'assets/images/sales/benefit.png',
+        'image': 'assets/images/old-store/sales/box.png',
+        'title': 'Для вас',
+        'subtitle': 'Специальное предложение',
+        'icon': 'assets/icons/old-store/store-card/eye.svg'
+      },
+      {
+        'image': 'assets/images/old-store/sales/benefit.png',
         'title': 'Новые игровые пакеты!',
         'subtitle': 'Встречайте новый раздел магазине',
         'buttonText': 'Перейти',
@@ -121,8 +126,8 @@ class _ScreenState extends State<Screen> {
         'gradient': LinearGradient(colors: [Color.fromRGBO(189, 89, 18, 1), Color.fromRGBO(234, 140, 0, 1)])
       },
       {
-        'image': 'assets/images/transports/economy/economy.png',
-        'icon': 'assets/icons/store-card/eye.svg',
+        'image': 'assets/images/old-store/transports/economy/economy.png',
+        'icon': 'assets/icons/old-store/store-card/eye.svg',
         'title': 'Акция дня',
         'subtitle': 'ГАЗ 24 Волга',
         'subtext': '699',
@@ -132,8 +137,8 @@ class _ScreenState extends State<Screen> {
     ],
     1: [
       {
-        'image': 'assets/images/games-packages/defolt.png',
-        'icon': 'assets/icons/store-card/shopping-cart.svg',
+        'image': 'assets/images/old-store/games-packages/defolt.png',
+        'icon': 'assets/icons/old-store/store-card/shopping-cart.svg',
         'title': 'Дефолт',
         'buttonText': '349',
         'subtitle': '50 000 Р + скин Кролик',
@@ -141,8 +146,8 @@ class _ScreenState extends State<Screen> {
         'gradient': RadialGradient(colors: [Color.fromRGBO(204, 0, 255, 1), Color.fromRGBO(255, 3, 230, 0.6)])
       },
       {
-        'image': 'assets/images/games-packages/elon-hub.png',
-        'icon': 'assets/icons/store-card/shopping-cart.svg',
+        'image': 'assets/images/old-store/games-packages/elon-hub.png',
+        'icon': 'assets/icons/old-store/store-card/shopping-cart.svg',
         'title': 'Elon Hub',
         'subtitle': 'Tesla Model S + скин Eva Elfie',
         'buttonText': '2499',
@@ -152,21 +157,21 @@ class _ScreenState extends State<Screen> {
     ],
     2: [
       {
-        'image': 'assets/images/transports/unique/unique.png',
+        'image': 'assets/images/old-store/transports/unique/unique.png',
         'title': 'Уникальные',
         'subtitle': '',
         'buttonText': 'Перейти',
         'gradient': LinearGradient(colors: [Color.fromRGBO(141, 67, 14, 1), Color.fromRGBO(234, 140, 0, 1)])
       },
-      {'image': 'assets/images/transports/economy/economy.png', 'title': 'Эконом', 'subtitle': ''},
-      {'image': 'assets/images/transports/average/average.png', 'title': 'Средний', 'subtitle': ''},
-      {'image': 'assets/images/transports/premium/premium.png', 'title': 'Премиум', 'subtitle': ''},
-      {'image': 'assets/images/transports/yachts/yachts.png', 'title': 'Яхты', 'subtitle': ''},
+      {'image': 'assets/images/old-store/transports/economy/economy.png', 'title': 'Эконом', 'subtitle': ''},
+      {'image': 'assets/images/old-store/transports/average/average.png', 'title': 'Средний', 'subtitle': ''},
+      {'image': 'assets/images/old-store/transports/premium/premium.png', 'title': 'Премиум', 'subtitle': ''},
+      {'image': 'assets/images/old-store/transports/yachts/yachts.png', 'title': 'Яхты', 'subtitle': ''},
     ],
     3: [
       {
-        'image': 'assets/images/skins/buda.png',
-        'icon': 'assets/icons/store-card/shopping-cart.svg',
+        'image': 'assets/images/old-store/skins/buda.png',
+        'icon': 'assets/icons/old-store/store-card/shopping-cart.svg',
         'title': 'OG Buda',
         'subtitle': '',
         'buttonText': '10000',
@@ -174,8 +179,8 @@ class _ScreenState extends State<Screen> {
     ],
     4: [
       {
-        'image': 'assets/images/musics/jbl.png',
-        'icon': 'assets/icons/store-card/shopping-cart.svg',
+        'image': 'assets/images/old-store/musics/jbl.png',
+        'icon': 'assets/icons/old-store/store-card/shopping-cart.svg',
         'title': 'JBL колонка',
         'subtitle': '30 дней',
         'buttonText': '199',
@@ -367,7 +372,7 @@ class _ScreenState extends State<Screen> {
                                       ),
                                       borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
                                   child: SvgPicture.asset(
-                                    'assets/icons/discount.svg',
+                                    'assets/icons/old-store/discount.svg',
                                     height: sdp_fromPX(context, 42),
                                     width: sdp_fromPX(context, 42),
                                   ),
@@ -408,7 +413,7 @@ class _ScreenState extends State<Screen> {
                             Padding(
                               padding: EdgeInsets.only(bottom: sdp_fromPX(context, 2.5)),
                               child: SvgPicture.asset(
-                                'assets/icons/ruble.svg',
+                                'assets/icons/old-store/ruble.svg',
                                 height: sdp_fromPX(context, 42),
                                 width: sdp_fromPX(context, 42),
                               ),
@@ -446,7 +451,7 @@ class _ScreenState extends State<Screen> {
                                       ),
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(sdp_fromPX(context, 15)), bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
-                                  child: SvgPicture.asset('assets/icons/bi_plus.svg')),
+                                  child: SvgPicture.asset('assets/icons/old-store/bi_plus.svg')),
                             ),
                           ],
                         ),
@@ -461,7 +466,7 @@ class _ScreenState extends State<Screen> {
                             Padding(
                               padding: EdgeInsets.only(bottom: sdp_fromPX(context, 2)),
                               child: SvgPicture.asset(
-                                'assets/icons/coin.svg',
+                                'assets/icons/old-store/coin.svg',
                                 height: sdp_fromPX(context, 42),
                                 width: sdp_fromPX(context, 42),
                               ),
@@ -498,7 +503,7 @@ class _ScreenState extends State<Screen> {
                                       ),
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(sdp_fromPX(context, 15)), bottomRight: Radius.circular(sdp_fromPX(context, 15)))),
-                                  child: SvgPicture.asset('assets/icons/bi_plus.svg')),
+                                  child: SvgPicture.asset('assets/icons/old-store/bi_plus.svg')),
                             ),
                           ],
                         ),
@@ -525,7 +530,7 @@ class _ScreenState extends State<Screen> {
                               ),
                               borderRadius: BorderRadius.circular(sdp_fromPX(context, 15))),
                           child: SvgPicture.asset(
-                            'assets/icons/exit_outline.svg',
+                            'assets/icons/old-store/exit_outline.svg',
                             height: sdp_fromPX(context, 52),
                             width: sdp_fromPX(context, 52),
                           ),
@@ -627,7 +632,7 @@ class _ScreenState extends State<Screen> {
                                               height: sdp_fromPX(context, 50),
                                               width: sdp_fromPX(context, 50),
                                               child: SvgPicture.asset(
-                                                'assets/icons/history-clock.svg',
+                                                'assets/icons/old-store/history-clock.svg',
                                               )),
                                           Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 11))),
                                           Text(

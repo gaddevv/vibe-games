@@ -5,8 +5,8 @@ import 'package:vibes_studio/casino/jackpot.dart';
 import 'package:vibes_studio/casino/more-less.dart';
 import 'package:vibes_studio/casino/red-black.dart';
 import 'package:vibes_studio/casino/wheel-fortune.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/components/sdp.dart';
 import 'package:vibes_studio/globals.dart';
 import 'package:vibes_studio/store/screen.dart';
 

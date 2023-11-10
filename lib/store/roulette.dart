@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vibes_studio/elements/alert/confirmation.dart';
-import 'package:vibes_studio/elements/alert/winner.dart';
-import 'package:vibes_studio/elements/buttons/back-button.dart';
-import 'package:vibes_studio/elements/buttons/button-animator.dart';
-import 'package:vibes_studio/elements/card/store-card.dart';
-import 'package:vibes_studio/elements/gradient/linear-gradient.dart';
-import 'package:vibes_studio/elements/sdp.dart';
+import 'package:vibes_studio/store/elements/alert/confirmation.dart';
+import 'package:vibes_studio/store/elements/alert/winner.dart';
+import 'package:vibes_studio/components/buttons/back-button.dart';
+import 'package:vibes_studio/components/buttons/button-animator.dart';
+import 'package:vibes_studio/store/elements/card/store-card.dart';
+import 'package:vibes_studio/store/elements/gradient/linear-gradient.dart';
+import 'package:vibes_studio/components/sdp.dart';
 
 class RouletteScreen extends StatefulWidget {
   const RouletteScreen({super.key});
@@ -26,7 +26,7 @@ class _RouletteScreenState extends State<RouletteScreen> {
         context: context,
         builder: (BuildContext context) {
           return WinnerAlert(
-            image: 'assets/images/roulette/car-case/ducati.png',
+            image: 'assets/images/old-store/roulette/car-case/ducati.png',
             title: 'Поздравляем',
             text: 'Вы выиграли ',
             richText: 'Ducati',
@@ -44,104 +44,104 @@ class _RouletteScreenState extends State<RouletteScreen> {
       {
         'title': 'Mercedes-Benz',
         'subtitle': 'GLS-63',
-        'image': 'assets/images/roulette/car-case/mercedes-benz.png',
+        'image': 'assets/images/old-store/roulette/car-case/mercedes-benz.png',
       },
       {
         'title': 'McLaren',
         'subtitle': '720S',
-        'image': 'assets/images/roulette/car-case/mclaren.png',
+        'image': 'assets/images/old-store/roulette/car-case/mclaren.png',
       },
       {
         'title': 'Ducati',
         'subtitle': '1000RR',
-        'image': 'assets/images/roulette/car-case/ducati.png',
+        'image': 'assets/images/old-store/roulette/car-case/ducati.png',
       },
       {
         'title': 'Volkswagen',
         'subtitle': 'Jetta',
-        'image': 'assets/images/roulette/car-case/volkswagen.png',
+        'image': 'assets/images/old-store/roulette/car-case/volkswagen.png',
       },
       {
         'title': 'Lada',
         'subtitle': 'Priora',
-        'image': 'assets/images/roulette/car-case/priora.png',
+        'image': 'assets/images/old-store/roulette/car-case/priora.png',
       },
     ],
     1: [
       {
         'title': 'Bike',
         'subtitle': 'Ducati',
-        'image': 'assets/images/roulette/everyday-case/bike.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/bike.png',
       },
       {
         'title': 'Деньги',
         'subtitle': 'Игровая валюта',
-        'image': 'assets/images/roulette/everyday-case/cash.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/cash.png',
       },
       {
         'title': 'Донат',
         'subtitle': 'На баланс',
-        'image': 'assets/images/roulette/everyday-case/donate.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/donate.png',
       },
       {
         'title': 'VIP-статус',
         'subtitle': 'Премиум VIP',
-        'image': 'assets/images/roulette/everyday-case/crown.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/crown.png',
       },
       {
         'title': 'Доп слот',
         'subtitle': 'Для автомобиля',
-        'image': 'assets/images/roulette/everyday-case/add-slot.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/add-slot.png',
       },
       {
         'title': 'Bike',
         'subtitle': 'Ducati',
-        'image': 'assets/images/roulette/everyday-case/bike.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/bike.png',
       },
       {
         'title': 'Деньги',
         'subtitle': 'Игровая валюта',
-        'image': 'assets/images/roulette/everyday-case/cash.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/cash.png',
       },
       {
         'title': 'Донат',
         'subtitle': 'На баланс',
-        'image': 'assets/images/roulette/everyday-case/donate.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/donate.png',
       },
       {
         'title': 'VIP-статус',
         'subtitle': 'Премиум VIP',
-        'image': 'assets/images/roulette/everyday-case/crown.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/crown.png',
       },
       {
         'title': 'Доп слот',
         'subtitle': 'Для автомобиля',
-        'image': 'assets/images/roulette/everyday-case/add-slot.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/add-slot.png',
       },
       {
         'title': 'Bike',
         'subtitle': 'Ducati',
-        'image': 'assets/images/roulette/everyday-case/bike.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/bike.png',
       },
       {
         'title': 'Деньги',
         'subtitle': 'Игровая валюта',
-        'image': 'assets/images/roulette/everyday-case/cash.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/cash.png',
       },
       {
         'title': 'Донат',
         'subtitle': 'На баланс',
-        'image': 'assets/images/roulette/everyday-case/donate.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/donate.png',
       },
       {
         'title': 'VIP-статус',
         'subtitle': 'Премиум VIP',
-        'image': 'assets/images/roulette/everyday-case/crown.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/crown.png',
       },
       {
         'title': 'Доп слот',
         'subtitle': 'Для автомобиля',
-        'image': 'assets/images/roulette/everyday-case/add-slot.png',
+        'image': 'assets/images/old-store/roulette/everyday-case/add-slot.png',
       },
     ]
   };
@@ -150,32 +150,32 @@ class _RouletteScreenState extends State<RouletteScreen> {
     {
       'title': 'Рулетка',
       'subtitle': 'Ежедневная',
-      'image': 'assets/images/roulette/everyday-case/everyday-case.png',
-      'icon': 'assets/icons/store-card/eye.svg',
+      'image': 'assets/images/old-store/roulette/everyday-case/everyday-case.png',
+      'icon': 'assets/icons/old-store/store-card/eye.svg',
     },
     {
       'title': 'Рулетка',
       'subtitle': 'Золотая',
-      'image': 'assets/images/roulette/gold-case/gold-case.png',
-      'icon': 'assets/icons/store-card/eye.svg',
+      'image': 'assets/images/old-store/roulette/gold-case/gold-case.png',
+      'icon': 'assets/icons/old-store/store-card/eye.svg',
     },
     {
       'title': 'Рулетка',
       'subtitle': 'Серебряная',
-      'image': 'assets/images/roulette/silver-case/silver-case.png',
-      'icon': 'assets/icons/store-card/eye.svg',
+      'image': 'assets/images/old-store/roulette/silver-case/silver-case.png',
+      'icon': 'assets/icons/old-store/store-card/eye.svg',
     },
     {
       'title': 'Рулетка',
       'subtitle': 'Бронзовая',
-      'image': 'assets/images/roulette/bronz-case/bronz-case.png',
-      'icon': 'assets/icons/store-card/eye.svg',
+      'image': 'assets/images/old-store/roulette/bronz-case/bronz-case.png',
+      'icon': 'assets/icons/old-store/store-card/eye.svg',
     },
     {
       'title': 'Рулетка',
       'subtitle': 'Авто-рулетка',
-      'image': 'assets/images/roulette/car-case/car-case.png',
-      'icon': 'assets/icons/store-card/eye.svg',
+      'image': 'assets/images/old-store/roulette/car-case/car-case.png',
+      'icon': 'assets/icons/old-store/store-card/eye.svg',
     },
   ];
 
@@ -347,7 +347,7 @@ class _RouletteScreenState extends State<RouletteScreen> {
                                           height: sdp_fromPX(context, 50),
                                           width: sdp_fromPX(context, 50),
                                           child: SvgPicture.asset(
-                                            'assets/icons/history-clock.svg',
+                                            'assets/icons/old-store/history-clock.svg',
                                           )),
                                       Padding(padding: EdgeInsets.only(left: sdp_fromPX(context, 11))),
                                       Text(
@@ -486,7 +486,7 @@ class _RouletteScreenState extends State<RouletteScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset(
-                          'assets/icons/store-card/shopping-cart.svg',
+                          'assets/icons/old-store/store-card/shopping-cart.svg',
                           height: sdp_fromPX(context, 28),
                           width: sdp_fromPX(context, 28),
                         ),
